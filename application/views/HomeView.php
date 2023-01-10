@@ -1,32 +1,11 @@
-<div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-        <h5 class="text-white h4">Menu Aplikasi</h5>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Input Data</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Laporan</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
-            </li>
-        </ul>
-    </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
-
-<br>
-
 <div class="container">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?= base_url(); ?>index.php/Home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Input Kartu Pengecekan</li>
+        </ol>
+    </nav>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
             <path
@@ -43,7 +22,8 @@
     </svg>
 
     <?php
-    $value = !empty($status) ? $status : '';
+    $in = $this->uri->segment(3);
+    $value = !empty($in) ? $in : '';
     if ($value) { ?>
     <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
@@ -63,6 +43,11 @@
             </div>
             <div class="card-body">
                 <div class="mb-3">
+                    <input type="hidden" class="form-control" name="user" value="<?php echo $this->session->userdata(
+                                    'nama'
+                                ); ?>" readonly>
+                </div>
+                <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">ID</label>
                     <input type="text" class="form-control" name="idform" value="<?php echo $kode ?>" readonly>
                 </div>
@@ -75,7 +60,7 @@
                 <div class="mb-3">
                     <label for="formGroupExampleInput2" class="form-label">No. Pol</label>
                     <input type="text" class="form-control" id="formGroupExampleInput2"
-                        placeholder="Masukkan Nomor Kendaraan" name="nopol">
+                        placeholder="Masukkan Nomor Kendaraan" name="nopol" id='car1' style="text-transform: uppercase">
                 </div>
                 <div class="row">
                     <?php for ($i=1; $i < 5; $i++) { ?>
@@ -162,7 +147,7 @@
                 <br>
                 <div class="col text-end">
                     <div class="control-group after-add-more">
-                        <button class="btn btn-info btn-sm add-more" type="button">
+                        <button class="btn btn-success btn-sm add-more" type="button">
                             <i class="fas fa-plus"></i> Muat
                         </button>
                     </div>
@@ -171,8 +156,9 @@
                     <div class="control-group">
                         <br>
                         <div class="card text-white bg-success">
-                            <div class="card-header text-end"><button class="btn btn-outline-light btn-sm remove"
-                                    type="button"><i class="fas fa-trash "></i> Hapus</button></div>
+                            <div class="card-header text-end"><button
+                                    class="btn btn-outline-danger btn-sm remove text-white" type="button"><i
+                                        class="fas fa-trash "></i> Hapus</button></div>
                             <div class="card-body">
                                 <table class="table text-white text-start table-sm table-borderless">
                                     <tr>
@@ -208,7 +194,11 @@
             </div>
             <div class="card-footer">
                 <!-- <button type="button" class="btn btn-primary">Kirim Data</button> -->
-                <button type="submit" id="btn-simpan" class="btn btn-primary">Kirim Data</button>
+                <button type="submit" id="btn-simpan" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                <button type="reset" class="btn btn-dark"><i class="fa fa-arrow-rotate-left"></i> Reset</button>
+                <button class="btn btn-outline-dark float-end" type="button"><i class="fa fa-arrow-left"></i>
+                    Kembali</button>
+
             </div>
         </div>
     </form>
@@ -253,5 +243,28 @@ $(document).ready(function() {
             }
         })
     });
+
+    var spOptions = {
+        onKeyPress: function(val, e, field, options) {
+            console.log(val.length)
+            var mask = "";
+
+            if (val.length === 8) {
+                mask = 'A-AAAA-AAA'
+            } else {
+                mask = 'A-AAAA-AAA'
+            }
+            oldLength = val.length;
+            $('#car1').mask(mask, options);
+        },
+        translation: {
+            'Z': {
+                pattern: /[.]?/,
+                optional: true
+            }
+        }
+    };
+
+    $('#car1').mask('AAA-AAAA', spOptions);
 });
 </script>

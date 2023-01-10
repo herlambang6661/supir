@@ -23,3 +23,33 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
+<div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+        <a href="<?= base_url(); ?>index.php/Home">
+            <h5 class="text-white h4">Menu Aplikasi</h5>
+        </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="<?= base_url(); ?>index.php/Home/pengecekan">Input
+                    Kartu Pengecekan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Laporan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>index.php/Login/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<br>

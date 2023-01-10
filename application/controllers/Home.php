@@ -7,9 +7,9 @@ class Home extends CI_Controller
     {
         parent::__construct();
 
-        // if ($this->session->userdata('status') != 'login') {
-        //     redirect(base_url());
-        // }
+        if ($this->session->userdata('status') != 'login') {
+            redirect(base_url());
+        }
         
         $models = array(
             'HomeModel' => 'home',
@@ -24,6 +24,14 @@ class Home extends CI_Controller
 
     public function index()
     {
+        // $data['kode'] = $this->home->kode();
+        $this->load->view('/template/_header.php');
+        // $this->load->view('HomeView');
+        $this->load->view('DashView');
+    }
+
+    public function pengecekan(Type $var = null)
+    {
         $data['kode'] = $this->home->kode();
         $this->load->view('/template/_header.php', $data);
         $this->load->view('HomeView');
@@ -34,6 +42,7 @@ class Home extends CI_Controller
         $post = $this->input->post();
 
         $idform = $_POST['idform'];
+        $diinput = $_POST['user'];
         $tanggal = $_POST['tanggal'];
         $nopol = $_POST['nopol'];
         $driver1 = $_POST['driver1'];
@@ -56,7 +65,8 @@ class Home extends CI_Controller
             'jammuat' => $jammuat,
             'jamselesai' => $jamselesai,
             'personel1' => $personel1,
-            'personel2' => $personel2
+            'personel2' => $personel2,
+            'diinput' => $diinput
         );
 
         $tujuan = $_POST['tujuan'];
@@ -76,17 +86,18 @@ class Home extends CI_Controller
                 'tujuan' => $tujuan[$i],
                 'karung' => $karung[$i],
                 'box' => $box[$i],
-                'bale' => $bale[$i]
+                'bale' => $bale[$i],
+                'diinput' => $diinput
             );
             $this->home->saveitm('sp_kartupengecekanitm', $data);
         }
 
         if ($result == 1) {
-            $data['kode'] = $this->home->kode();
-            $data['status'] = 'sukses';
-            redirect('Home', $data);
+            $status = 'sukses';
+            redirect('Home/index/'.$status);
         } else {
-            # code...
+            $status = 'error';
+            redirect('Home/index/'.$status);
         }
     }
 }
