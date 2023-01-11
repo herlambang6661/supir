@@ -30,11 +30,16 @@ class Home extends CI_Controller
         $this->load->view('DashView');
     }
 
-    public function pengecekan(Type $var = null)
+    public function pengecekan()
     {
         $data['kode'] = $this->home->kode();
         $this->load->view('/template/_header.php', $data);
         $this->load->view('HomeView');
+    }
+    public function laporan()
+    {
+        $this->load->view('/template/_header.php');
+        $this->load->view('LaporanView');
     }
 
     public function input()
@@ -99,5 +104,35 @@ class Home extends CI_Controller
             $status = 'error';
             redirect('Home/index/'.$status);
         }
+    }
+    public function list_item()
+    {
+        // error_reporting(0);
+        $list = $this->home->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $itmdata) {
+            $no++;
+            $row = array();
+            $row[] = $itmdata->idmuat;
+            $row[] = $itmdata->tanggal;
+            $row[] = $itmdata->nopol;
+            $row[] = $itmdata->driver1;
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->home->count_all(),
+            "recordsFiltered" => $this->home->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
+    }
+    public function print($id, $row)
+    {
+        $data['pengecekan'] = $this->home->printPengecekan('sp_kartupengecekan', 'idmuat', $id)->result();
+        $this->load->view('template/_print', $data);
     }
 }
