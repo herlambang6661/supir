@@ -5,21 +5,33 @@ foreach ($pengecekan as $u) { ?>
     <div class="card-body" style="color: black;">
         <!-- <h2 class="text-center">PT. PINTEX</h2> -->
         <center>
-            <img src="<?= base_url(); ?>assets/pintex.png" class="text-center" alt="PT. PINTEX" srcset="">
+            <img src="https://pintex.co.id/apps/assets/pintex.png" class="text-center" alt="PT. PINTEX" srcset="">
         </center><br>
         <h3 class="text-center">(PLUMBON INTERNATIONAL TEXTILE)</h3>
-        <h5 class="text-center">Jln. Raya Cirebon-Bandung Km.12 Plumbon-Cirebon</h5>
-        <h5 class="text-center">Phone : 62-231-321366 (HUNTING) Faximile : 62-231-321389</h5>
+        <p class="text-center" style="font-size: 12px">Jln. Raya Cirebon-Bandung Km.12 Plumbon-Cirebon</p>
         <hr>
         <u class="text-center">
-            <h4>FORM PERMINTAAN BARANG</h4>
+            <h4>KARTU PENGECEKAN</h4>
         </u>
         <br>
         <i>
             <?php $date = date("d M Y", strtotime($u->tanggal)); ?>
-            <h6>Tanggal : </h6>
-            <br>
-            <h6>No Form : </h6>
+            <div class="row">
+                <div class="col">
+                    <h6>TANGGAL : <?= $date; ?></h6>
+                    <h6>JAM MUAT : <?= $u->jammuat; ?></h6>
+                    <h6>JAM SELESAI : <?= $u->jamselesai; ?></h6>
+                </div>
+                <div class="col">
+                    <h6>ITEM : </h6>
+                    <h6>TUJUAN : </h6>
+                    <h6>PERSONEL MUAT : </h6>
+                </div>
+                <div class="col">
+                    <h6>NO. POL : </h6>
+                    <h6>DRIVER : </h6>
+                </div>
+            </div>
         </i>
         <br>
         <table class="table" border="3" style="font-size: 14px; height: 2px; color: black; border-color: black;">

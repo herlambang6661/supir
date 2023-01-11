@@ -87,7 +87,7 @@ class HomeModel extends CI_Model
 
     // ======== DATATABLES SERVERSIDE 2 ================================================================================================================================
 
-    public function printPermintaan($table, $id, $isiID)
+    public function printPengecekan($table, $id, $isiID)
     {
         $this->db->from($table);
         $this->db->where($id, $isiID);

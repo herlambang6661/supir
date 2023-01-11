@@ -130,7 +130,7 @@ class Home extends CI_Controller
         //output to json format
         echo json_encode($output);
     }
-    public function print($id, $row)
+    public function print($id)
     {
         $data['pengecekan'] = $this->home->printPengecekan('sp_kartupengecekan', 'idmuat', $id)->result();
         $this->load->view('template/_print', $data);
