@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container col-lg-4">
     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
         aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -63,7 +63,7 @@
                         placeholder="Masukkan Nomor Kendaraan" name="nopol" id='car1' style="text-transform: uppercase">
                 </div>
                 <div class="row">
-                    <?php for ($i=1; $i < 5; $i++) { ?>
+                    <?php for ($i=1; $i < 3; $i++) { ?>
                     <div class="col-6">
                         <label for="formGroupExampleInput2" class="form-label">Driver <?= $i ?></label>
                         <!-- <input type="text" class="form-control" id="formGroupExampleInput2"
@@ -97,6 +97,41 @@
                     </div>
                     <?php } ?>
                 </div>
+                <div class="row">
+                    <?php for ($i=1; $i < 3; $i++) { ?>
+                    <div class="col-6">
+                        <label for="formGroupExampleInput2" class="form-label">Forklift <?= $i ?></label>
+                        <!-- <input type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Masukkan Nama Driver" name="driver"> -->
+                        <select name="forklift<?= $i ?>" id="forklift<?= $i ?>" class="form-control">
+                            <option value="" hidden>-- Pilih Personel --</option>
+                            <option value="AKMAD AFANDI">AKMAD AFANDI</option>
+                            <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
+                            <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
+                            <option value="DADANG KOMAR">DADANG KOMAR</option>
+                            <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
+                            <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
+                            <option value="EKO JOKO">EKO JOKO</option>
+                            <option value="FAHMI FAHRURROZI">FAHMI FAHRURROZI</option>
+                            <option value="HADI IRMAWAN">HADI IRMAWAN</option>
+                            <option value="HERI MULYANA">HERI MULYANA</option>
+                            <option value="HERMAN">HERMAN</option>
+                            <option value="HERU ISWANTO">HERU ISWANTO</option>
+                            <option value="IIP RAMDHANI">IIP RAMDHANI</option>
+                            <option value="JOHANI">JOHANI</option>
+                            <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
+                            <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
+                            <option value="SUBARI">SUBARI</option>
+                            <option value="SUDARNO">SUDARNO</option>
+                            <option value="SUPRIYANTO I">SUPRIYANTO I</option>
+                            <option value="WARAS LATIF KUSUMA">WARAS LATIF KUSUMA</option>
+                            <option value="YAHYA">YAHYA</option>
+                        </select>
+                        <!-- <div class="form-text"><small><em>Gunakan Koma (,) jika lebih Driver
+                                dari satu</em></small></div> -->
+                    </div>
+                    <?php } ?>
+                </div>
                 <hr>
                 <div class="row">
                     <div class="col">
@@ -113,33 +148,32 @@
                     </div>
                 </div>
                 <div class="row">
-                    <?php for ($i = 1; $i < 3; $i++) { ?>
+                    <?php for ($i = 1; $i < 5; $i++) { ?>
                     <div class="col-6">
                         <label for="formGroupExampleInput2" class="form-label">Personel Muat <?= $i ?></label>
                         <select name="personel<?= $i ?>" id="personel<?= $i ?>" class="form-control">
                             <option value="" hidden>-- Pilih Personel --</option>
-                            <option value="">AKMAD AFANDI</option>
-                            <option value="">ASEP BUDIMAN</option>
-                            <option value="">BAYUDI RAYITNO</option>
-                            <option value="">DADANG KOMAR</option>
-                            <option value="">DONI ADIFIYANTO</option>
-                            <option value="">EDWIN SAPUTRA</option>
-                            <option value="">EKO JOKO</option>
-                            <option value="">FAHMI FAHRURROZI</option>
-                            <option value="">HADI IRMAWAN</option>
-                            <option value="">HERI MULYANA</option>
-                            <option value="">HERMAN</option>
-                            <option value="">HERU ISWANTO</option>
-                            <option value="">IIP RAMDHANI</option>
-                            <option value="">JOHANI</option>
-                            <option value="">MOHAMAD JAYUS</option>
-                            <option value="">ROCHMAD SIGIT DN</option>
-                            <option value="">ROSA PRADEWI</option>
-                            <option value="">SUBARI</option>
-                            <option value="">SUDARNO</option>
-                            <option value="">SUPRIYANTO I</option>
-                            <option value="">WARAS LATIF KUSUMA</option>
-                            <option value="">YAHYA</option>
+                            <option value="AKMAD AFANDI">AKMAD AFANDI</option>
+                            <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
+                            <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
+                            <option value="DADANG KOMAR">DADANG KOMAR</option>
+                            <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
+                            <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
+                            <option value="EKO JOKO">EKO JOKO</option>
+                            <option value="FAHMI FAHRURROZI">FAHMI FAHRURROZI</option>
+                            <option value="HADI IRMAWAN">HADI IRMAWAN</option>
+                            <option value="HERI MULYANA">HERI MULYANA</option>
+                            <option value="HERMAN">HERMAN</option>
+                            <option value="HERU ISWANTO">HERU ISWANTO</option>
+                            <option value="IIP RAMDHANI">IIP RAMDHANI</option>
+                            <option value="JOHANI">JOHANI</option>
+                            <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
+                            <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
+                            <option value="SUBARI">SUBARI</option>
+                            <option value="SUDARNO">SUDARNO</option>
+                            <option value="SUPRIYANTO I">SUPRIYANTO I</option>
+                            <option value="WARAS LATIF KUSUMA">WARAS LATIF KUSUMA</option>
+                            <option value="YAHYA">YAHYA</option>
                         </select>
                     </div>
                     <?php } ?>
@@ -168,17 +202,34 @@
                                                 class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
-                                        <td>karung</td>
+                                        <td>Nama Barang</td>
                                         <td>:</td>
-                                        <td><input type="number" name="karung[]" id="karung[]"
-                                                class="form-control form-control-sm">
-                                        </td>
+                                        <td><input type="text" name="nama[]" id="nama[]"
+                                                class="form-control form-control-sm"></td>
                                     </tr>
                                     <tr>
-                                        <td>Box</td>
+                                        <td>Lot</td>
                                         <td>:</td>
-                                        <td><input type="number" name="box[]" id="box[]"
+                                        <td><input type="text" name="lot[]" id="lot[]"
                                                 class="form-control form-control-sm"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="jenis"
+                                                    id="inlineRadio1" value="Karung">
+                                                <label class="form-check-label" for="inlineRadio1">Karung</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="jenis"
+                                                    id="inlineRadio2" value="Box">
+                                                <label class="form-check-label" for="inlineRadio2">Box</label>
+                                            </div>
+                                        </td>
+                                        <td>:</td>
+                                        <td><input type="number" name="val[]" id="val[]"
+                                                class="form-control form-control-sm">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Bale</td>
@@ -195,9 +246,12 @@
             <div class="card-footer">
                 <!-- <button type="button" class="btn btn-primary">Kirim Data</button> -->
                 <button type="submit" id="btn-simpan" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                <button type="reset" class="btn btn-dark"><i class="fa fa-arrow-rotate-left"></i> Reset</button>
-                <button class="btn btn-outline-dark float-end" type="button"><i class="fa fa-arrow-left"></i>
-                    Kembali</button>
+                <div class="float-end">
+                    <button type="reset" class="btn btn-dark"><i class="fa fa-arrow-rotate-left"></i>
+                        Reset</button>
+                    <button class="btn btn-outline-dark" type="button"><i class="fa fa-arrow-left"></i>
+                        Kembali</button>
+                </div>
 
             </div>
         </div>

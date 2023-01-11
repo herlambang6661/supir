@@ -1,73 +1,107 @@
 <?php
-$this->load->view('template/_header');
+$this->load->view('template/_header_print');
 foreach ($pengecekan as $u) { ?>
 <div class="card" id='PrintPre' style="border-color: black; border-style: solid;">
     <div class="card-body" style="color: black;">
-        <!-- <h2 class="text-center">PT. PINTEX</h2> -->
-        <center>
-            <img src="https://pintex.co.id/apps/assets/pintex.png" class="text-center" alt="PT. PINTEX" srcset="">
-        </center><br>
-        <h3 class="text-center">(PLUMBON INTERNATIONAL TEXTILE)</h3>
-        <p class="text-center" style="font-size: 12px">Jln. Raya Cirebon-Bandung Km.12 Plumbon-Cirebon</p>
-        <hr>
         <u class="text-center">
             <h4>KARTU PENGECEKAN</h4>
         </u>
-        <br>
-        <i>
-            <?php $date = date("d M Y", strtotime($u->tanggal)); ?>
-            <div class="row">
-                <div class="col">
-                    <h6>TANGGAL : <?= $date; ?></h6>
-                    <h6>JAM MUAT : <?= $u->jammuat; ?></h6>
-                    <h6>JAM SELESAI : <?= $u->jamselesai; ?></h6>
-                </div>
-                <div class="col">
-                    <h6>ITEM : </h6>
-                    <h6>TUJUAN : </h6>
-                    <h6>PERSONEL MUAT : </h6>
-                </div>
-                <div class="col">
-                    <h6>NO. POL : </h6>
-                    <h6>DRIVER : </h6>
-                </div>
+        <?php $date = date("d M Y", strtotime($u->tanggal)); ?>
+        <div class="row">
+            <div class="col">
+                <table class="h6">
+                    <tr>
+                        <td style="width:100px">TANGGAL</td>
+                        <td> :</td>
+                        <td><?= $date; ?></td>
+                    </tr>
+                    <tr>
+                        <td>JAM MUAT</td>
+                        <td> :</td>
+                        <td><?= $u->jammuat; ?></td>
+                    </tr>
+                    <tr>
+                        <td>JAM SELESAI</td>
+                        <td> :</td>
+                        <td><?= $u->jamselesai; ?></td>
+                    </tr>
+                    <tr style="text-transform: uppercase">
+                        <td>NO. POL</td>
+                        <td> :</td>
+                        <td><?= $u->nopol; ?></td>
+                    </tr>
+                </table>
             </div>
-        </i>
-        <br>
-        <table class="table" border="3" style="font-size: 14px; height: 2px; color: black; border-color: black;">
+            <div class="col">
+                <h6>PERSONEL :
+                    <ol>
+                        <li><?= $u->personel1 ?></li>
+                        <?= $u->personel2=""?"":"<li>".$u->personel2."</li>" ?>
+                        <?= $u->personel3=""?"":"<li>".$u->personel3."</li>" ?>
+                        <?= $u->personel4=""?"":"<li>".$u->personel4."</li>" ?>
+                    </ol>
+                </h6>
+            </div>
+            <div class="col">
+                <h6>FORKLIFT :
+                    <ol>
+                        <li><?= $u->forklift1 ?></li>
+                        <?= $u->forklift2=""?"":"<li>".$u->forklift2."</li>" ?>
+                    </ol>
+                </h6>
+                <h6>DRIVER :
+                    <ol>
+                        <li><?= $u->driver1 ?></li>
+                        <?= $u->driver2=""?"":"<li>".$u->driver2."</li>" ?>
+                    </ol>
+                </h6>
+            </div>
+        </div>
+        <table class="table table-bordered" border="3"
+            style="font-size: 14px; height: 2px; color: black; border-color: black;">
             <thead class="text-black">
                 <th>#</th>
-                <th>Kodeseri</th>
-                <th>Nama</th>
-                <th>Keterangan</th>
-                <th>Katalog</th>
-                <th>Mesin</th>
-                <th>Quantity</th>
-                <th>Satuan</th>
-                <th>Pemesan</th>
+                <th>TUJUAN</th>
+                <th>BARANG</th>
+                <th>LOT</th>
+                <th>KARUNG</th>
+                <th>BOX</th>
+                <th>BALE</th>
             </thead>
+            <?php 
+            $no1 = 1; 
+            foreach ($pengecekanitm as $w) { ?>
+            <tr>
+                <td><?php echo $no1++ ?></td>
+                <td><?php echo $w->tujuan ?></td>
+                <td><?php echo $w->nama ?></td>
+                <td><?php echo $w->lot ?></td>
+                <td><?php echo $w->jenis = 'K' ? $w->val_jenis : "" ?></td>
+                <td><?php echo $w->jenis = 'B' ? $w->val_jenis : "" ?></td>
+                <td><?php echo $w->bale ?></td>
+            </tr>
+            <?php } ?>
         </table>
-        <br><br><br><br><br>
         <div class="row text-center">
-            <div class="col">
-                Mengetahui / Menyetujui,
+            <div class="col h6">
+                GUDANG,
             </div>
-            <div class="col">
-                Mengetahui / Kepala Bagian,
+            <div class="col h6">
+                SUPIR,
             </div>
-            <div class="col">
-                Peminta,
+            <div class="col h6">
+                SECURITY,
             </div>
         </div>
         <br><br><br><br><br>
         <div class="row text-center">
-            <div class="col">
-                ( Pak Alvin / Pak Brian )
-            </div>
-            <div class="col">
+            <div class="col h6">
                 ( ......................... )
             </div>
-            <div class="col">
+            <div class="col h6">
+                ( ......................... )
+            </div>
+            <div class="col h6">
                 ( ......................... )
             </div>
         </div>

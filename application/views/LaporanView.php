@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
 
-                <table style="text-decoration-color: black; text-transform:uppercase;font-size: 10px;width:100%"
+                <table style="text-decoration-color: black; text-transform:uppercase;font-size: 13px;width:100%"
                     id="tablesss" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -98,7 +98,7 @@ table2 = $('#tablesss').DataTable({
         [5, 10, 25, 50, -1],
         ['5', '10', '25', '50', 'Show all']
     ],
-    "dom": 'Bfrtlip',
+    "dom": 'fBrtlip',
     "buttons": [{
         "extend": 'excel',
         "className": 'btn btn-success',

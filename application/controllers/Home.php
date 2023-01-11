@@ -52,12 +52,14 @@ class Home extends CI_Controller
         $nopol = $_POST['nopol'];
         $driver1 = $_POST['driver1'];
         $driver2 = $_POST['driver2'];
-        $driver3 = $_POST['driver3'];
-        $driver4 = $_POST['driver4'];
+        $forklift1 = $_POST['forklift1'];
+        $forklift2 = $_POST['forklift2'];
         $jammuat = $_POST['jammuat'];
         $jamselesai = $_POST['jamselesai'];
         $personel1 = $_POST['personel1'];
         $personel2 = $_POST['personel2'];
+        $personel3 = $_POST['personel3'];
+        $personel4 = $_POST['personel4'];
 
         $dataMuat = array(
             'idmuat' => $idform,
@@ -65,18 +67,22 @@ class Home extends CI_Controller
             'nopol' => $nopol,
             'driver1' => $driver1,
             'driver2' => $driver2,
-            'driver3' => $driver3,
-            'driver4' => $driver4,
+            'forklift1' => $forklift1,
+            'forklift2' => $forklift2,
             'jammuat' => $jammuat,
             'jamselesai' => $jamselesai,
             'personel1' => $personel1,
             'personel2' => $personel2,
+            'personel3' => $personel3,
+            'personel4' => $personel4,
             'diinput' => $diinput
         );
 
         $tujuan = $_POST['tujuan'];
-        $karung = $_POST['karung'];
-        $box = $_POST['box'];
+        $nama = $_POST['nama'];
+        $lot = $_POST['lot'];
+        $jenis = $_POST['jenis'];
+        $val = $_POST['val'];
         $bale = $_POST['bale'];
         
         $jml_mbl = count($tujuan);
@@ -85,12 +91,13 @@ class Home extends CI_Controller
 
         $result = $this->home->saveitm('sp_kartupengecekan', $dataMuat);
         for ($i = 0; $i < $jml; $i++) {
-            
             $data = array(
                 'idmuat' => $idform,
                 'tujuan' => $tujuan[$i],
-                'karung' => $karung[$i],
-                'box' => $box[$i],
+                'nama' => $nama[$i],
+                'lot' => $lot[$i],
+                'jenis' => $jenis[$i],
+                'val_jenis' => $val[$i],
                 'bale' => $bale[$i],
                 'diinput' => $diinput
             );
@@ -99,10 +106,10 @@ class Home extends CI_Controller
 
         if ($result == 1) {
             $status = 'sukses';
-            redirect('Home/index/'.$status);
+            redirect('Home/pengecekan/'.$status);
         } else {
             $status = 'error';
-            redirect('Home/index/'.$status);
+            redirect('Home/pengecekan/'.$status);
         }
     }
     public function list_item()
@@ -115,9 +122,9 @@ class Home extends CI_Controller
             $no++;
             $row = array();
             $row[] = $itmdata->idmuat;
-            $row[] = $itmdata->tanggal;
+            $row[] = date("d M Y", strtotime($itmdata->tanggal));
             $row[] = $itmdata->nopol;
-            $row[] = $itmdata->driver1;
+            $row[] = $itmdata->driver1."".$itmdata->driver2=""?"":", ".$itmdata->driver2;
             $data[] = $row;
         }
 
@@ -133,6 +140,7 @@ class Home extends CI_Controller
     public function print($id)
     {
         $data['pengecekan'] = $this->home->printPengecekan('sp_kartupengecekan', 'idmuat', $id)->result();
+        $data['pengecekanitm'] = $this->home->printPengecekan('sp_kartupengecekanitm', 'idmuat', $id)->result();
         $this->load->view('template/_print', $data);
     }
 }
