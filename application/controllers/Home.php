@@ -88,7 +88,8 @@ class Home extends CI_Controller
         $jml_mbl = count($tujuan);
 
         $jml = $jml_mbl - 1;
-
+        // print_r($jenis);
+        // die();
         $result = $this->home->saveitm('sp_kartupengecekan', $dataMuat);
         for ($i = 0; $i < $jml; $i++) {
             $data = array(

@@ -9,55 +9,55 @@ foreach ($pengecekan as $u) { ?>
         <?php $date = date("d M Y", strtotime($u->tanggal)); ?>
         <div class="row">
             <div class="col">
-                <table class="h6">
+                <table>
                     <tr>
-                        <td style="width:100px">TANGGAL</td>
+                        <td style="width:100px" class="h6">TANGGAL</td>
                         <td> :</td>
                         <td><?= $date; ?></td>
                     </tr>
                     <tr>
-                        <td>JAM MUAT</td>
+                        <td class="h6">JAM MUAT</td>
                         <td> :</td>
                         <td><?= $u->jammuat; ?></td>
                     </tr>
                     <tr>
-                        <td>JAM SELESAI</td>
+                        <td class="h6">JAM SELESAI</td>
                         <td> :</td>
                         <td><?= $u->jamselesai; ?></td>
                     </tr>
                     <tr style="text-transform: uppercase">
-                        <td>NO. POL</td>
+                        <td class="h6">NO. POL</td>
                         <td> :</td>
                         <td><?= $u->nopol; ?></td>
                     </tr>
                 </table>
             </div>
             <div class="col">
-                <h6>PERSONEL :
-                    <ol>
-                        <li><?= $u->personel1 ?></li>
-                        <?= $u->personel2=""?"":"<li>".$u->personel2."</li>" ?>
-                        <?= $u->personel3=""?"":"<li>".$u->personel3."</li>" ?>
-                        <?= $u->personel4=""?"":"<li>".$u->personel4."</li>" ?>
-                    </ol>
-                </h6>
+                <h6>PERSONEL :</h6>
+                <ol>
+                    <li><?= $u->personel1 ?></li>
+                    <?= $u->personel2=""?"":"<li>".$u->personel2."</li>" ?>
+                    <?= $u->personel3=""?"":"<li>".$u->personel3."</li>" ?>
+                    <?= $u->personel4=""?"":"<li>".$u->personel4."</li>" ?>
+                </ol>
+
             </div>
             <div class="col">
-                <h6>FORKLIFT :
-                    <ol>
-                        <li><?= $u->forklift1 ?></li>
-                        <?= $u->forklift2=""?"":"<li>".$u->forklift2."</li>" ?>
-                    </ol>
-                </h6>
-                <h6>DRIVER :
-                    <ol>
-                        <li><?= $u->driver1 ?></li>
-                        <?= $u->driver2=""?"":"<li>".$u->driver2."</li>" ?>
-                    </ol>
-                </h6>
+                <h6>FORKLIFT :</h6>
+                <ol>
+                    <li><?= $u->forklift1 ?></li>
+                    <?= $u->forklift2=""?"":"<li>".$u->forklift2."</li>" ?>
+                </ol>
+
+                <h6>DRIVER :</h6>
+                <ol>
+                    <li><?= $u->driver1 ?></li>
+                    <?= $u->driver2=""?"":"<li>".$u->driver2."</li>" ?>
+                </ol>
+
             </div>
         </div>
-        <table class="table table-bordered" border="3"
+        <table class="table table-bordered text-center" border="3"
             style="font-size: 14px; height: 2px; color: black; border-color: black;">
             <thead class="text-black">
                 <th>#</th>
@@ -76,8 +76,20 @@ foreach ($pengecekan as $u) { ?>
                 <td><?php echo $w->tujuan ?></td>
                 <td><?php echo $w->nama ?></td>
                 <td><?php echo $w->lot ?></td>
-                <td><?php echo $w->jenis = 'K' ? $w->val_jenis : "" ?></td>
-                <td><?php echo $w->jenis = 'B' ? $w->val_jenis : "" ?></td>
+                <td>
+                    <?php if ($w->jenis == "Karung") {
+                        echo $w->val_jenis;
+                    } else {
+                        echo "-"; 
+                    } ?>
+                </td>
+                <td>
+                    <?php if ($w->jenis == "Box") {
+                        echo $w->val_jenis;
+                    } else {
+                        echo "-"; 
+                    } ?>
+                </td>
                 <td><?php echo $w->bale ?></td>
             </tr>
             <?php } ?>
@@ -103,6 +115,17 @@ foreach ($pengecekan as $u) { ?>
             </div>
             <div class="col h6">
                 ( ......................... )
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col h6">
+                TTD & Nama Jelas
+            </div>
+            <div class="col h6">
+                TTD & Nama Jelas
+            </div>
+            <div class="col h6">
+                TTD & Nama Jelas
             </div>
         </div>
     </div>
