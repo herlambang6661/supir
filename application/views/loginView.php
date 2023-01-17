@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" placeholder="Username" id="username" name="username">
-                    <label for="floatingInput">Email address</label>
+                    <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control" placeholder="Password" id="password" name="password">

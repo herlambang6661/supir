@@ -60,10 +60,74 @@
                     ); ?>" name="tanggal">
                     </div>
                     <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label fw-bolder">Security</label>
+                        <select name="security" id="security" class="form-control">
+                            <option value="">-- Pilih Security --</option>
+                            <option value="ABDUL NASORI">ABDUL NASORI</option>
+                            <option value="ADE SUYONO">ADE SUYONO</option>
+                            <option value="AGUS SUTISNA">AGUS SUTISNA</option>
+                            <option value="ARIEF MAHFUDIN">ARIEF MAHFUDIN</option>
+                            <option value="ARYUDI">ARYUDI</option>
+                            <option value="HARDIMAN">HARDIMAN</option>
+                            <option value="HARYADI">HARYADI</option>
+                            <option value="KADI TRIHAYUDI">KADI TRIHAYUDI</option>
+                            <option value="LIA ZULIARSIH">LIA ZULIARSIH</option>
+                            <option value="MAULANA ISHAK">MAULANA ISHAK</option>
+                            <option value="M WILDAN">MOHAMMAD WILDAN</option>
+                            <option value="NUROKHMAN">NUROKHMAN</option>
+                            <option value="ROEIYUDIN">ROEIYUDIN</option>
+                            <option value="SUDIRAWAN">SUDIRAWAN</option>
+                            <option value="SUJANA">SUJANA</option>
+                            <option value="SUMIASIH">SUMIASIH</option>
+                            <option value="SUTARNO">SUTARNO</option>
+                            <option value="TABRI KUSNADI">TABRI KUSNADI</option>
+                            <option value="UDIN KOMARUDIN">UDIN KOMARUDIN</option>
+                            <option value="UNIQ AYU w">UNIQ AYU WAHYUNI</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label fw-bolder">Checker Gudang</label>
+                        <select name="checker" id="checker" class="form-control">
+                            <option value="">-- Pilih Checker --</option>
+                            <option value="AKMAD AFANDI">AKMAD AFANDI</option>
+                            <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
+                            <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
+                            <option value="DADANG KOMAR">DADANG KOMAR</option>
+                            <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
+                            <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
+                            <option value="EKO JOKO">EKO JOKO</option>
+                            <option value="FAHMI F">FAHMI FAHRURROZI</option>
+                            <option value="HADI I">HADI IRMAWAN</option>
+                            <option value="HERI MULYANA">HERI MULYANA</option>
+                            <option value="HERMAN">HERMAN</option>
+                            <option value="HERU ISWANTO">HERU ISWANTO</option>
+                            <option value="IIP RAMDHANI">IIP RAMDHANI</option>
+                            <option value="JOHANI">JOHANI</option>
+                            <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
+                            <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
+                            <option value="SUBARI">SUBARI</option>
+                            <option value="SUDARNO">SUDARNO</option>
+                            <option value="SUPRIYANTO I">SUPRIYANTO I</option>
+                            <option value="WARAS LATIF k">WARAS LATIF KUSUMA</option>
+                            <option value="YAHYA">YAHYA</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label fw-bolder">No. Pol</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2"
-                            placeholder="Masukkan Nomor Kendaraan" name="nopol" id='car1'
-                            style="text-transform: uppercase">
+                        <select name="nopol" id="nopol" class="form-control">
+                            <option value="">-- Pilih Nopol --</option>
+                            <option value="E 8057 KV"> E 8057 KV</option>
+                            <option value="E 8058 KV"> E 8058 KV</option>
+                            <option value="E 8634 KW"> E 8634 KW</option>
+                            <option value="E 8807 KW"> E 8807 KW</option>
+                            <option value="B 9051 UEN">B 9051 UEN</option>
+                            <option value="B 9369 SW"> B 9369 SW</option>
+                            <option value="B 9369 UU"> B 9369 UU</option>
+                            <option value="B 9369 SB"> B 9369 SB</option>
+                            <option value="B 9369 SYM">B 9369 SYM</option>
+                            <option value="B 9675 UDF">B 9675 UDF</option>
+                        </select>
+
                     </div>
                     <div class="row">
                         <?php for ($i=1; $i < 3; $i++) { ?>
@@ -84,7 +148,7 @@
                                 <option value="HARI PRANATA">HARI PRANATA</option>
                                 <option value="HASAN APANDI">HASAN APANDI</option>
                                 <option value="KAMID">KAMID</option>
-                                <option value="MARAGANTI PARLAUNGAN MARPAUNG">MARAGANTI PARLAUNGAN MARPAUNG</option>
+                                <option value="MARAGANTI P MARPAUNG">MARAGANTI PARLAUNGAN MARPAUNG</option>
                                 <option value="MASKINA">MASKINA</option>
                                 <option value="MOHAMAD ALHAMIR">MOHAMAD ALHAMIR</option>
                                 <option value="NANA MULIANA">NANA MULIANA</option>
@@ -107,7 +171,7 @@
                             <!-- <input type="text" class="form-control" id="formGroupExampleInput2"
                         placeholder="Masukkan Nama Driver" name="driver"> -->
                             <select name="forklift<?= $i ?>" id="forklift<?= $i ?>" class="form-control">
-                                <option value="" hidden>-- Pilih Personel --</option>
+                                <option value="">-- Pilih Personel --</option>
                                 <option value="AKMAD AFANDI">AKMAD AFANDI</option>
                                 <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
                                 <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
@@ -115,8 +179,8 @@
                                 <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
                                 <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
                                 <option value="EKO JOKO">EKO JOKO</option>
-                                <option value="FAHMI FAHRURROZI">FAHMI FAHRURROZI</option>
-                                <option value="HADI IRMAWAN">HADI IRMAWAN</option>
+                                <option value="FAHMI F">FAHMI FAHRURROZI</option>
+                                <option value="HADI I">HADI IRMAWAN</option>
                                 <option value="HERI MULYANA">HERI MULYANA</option>
                                 <option value="HERMAN">HERMAN</option>
                                 <option value="HERU ISWANTO">HERU ISWANTO</option>
@@ -127,7 +191,7 @@
                                 <option value="SUBARI">SUBARI</option>
                                 <option value="SUDARNO">SUDARNO</option>
                                 <option value="SUPRIYANTO I">SUPRIYANTO I</option>
-                                <option value="WARAS LATIF KUSUMA">WARAS LATIF KUSUMA</option>
+                                <option value="WARAS LATIF k">WARAS LATIF KUSUMA</option>
                                 <option value="YAHYA">YAHYA</option>
                             </select>
                             <!-- <div class="form-text"><small><em>Gunakan Koma (,) jika lebih Driver
@@ -156,7 +220,7 @@
                             <label for="formGroupExampleInput2" class="form-label fw-bolder">Personel Muat
                                 <?= $i ?></label>
                             <select name="personel<?= $i ?>" id="personel<?= $i ?>" class="form-control">
-                                <option value="" hidden>-- Pilih Personel --</option>
+                                <option value="">-- Pilih Personel --</option>
                                 <option value="AKMAD AFANDI">AKMAD AFANDI</option>
                                 <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
                                 <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
@@ -164,8 +228,8 @@
                                 <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
                                 <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
                                 <option value="EKO JOKO">EKO JOKO</option>
-                                <option value="FAHMI FAHRURROZI">FAHMI FAHRURROZI</option>
-                                <option value="HADI IRMAWAN">HADI IRMAWAN</option>
+                                <option value="FAHMI F">FAHMI FAHRURROZI</option>
+                                <option value="HADI I">HADI IRMAWAN</option>
                                 <option value="HERI MULYANA">HERI MULYANA</option>
                                 <option value="HERMAN">HERMAN</option>
                                 <option value="HERU ISWANTO">HERU ISWANTO</option>
@@ -176,7 +240,7 @@
                                 <option value="SUBARI">SUBARI</option>
                                 <option value="SUDARNO">SUDARNO</option>
                                 <option value="SUPRIYANTO I">SUPRIYANTO I</option>
-                                <option value="WARAS LATIF KUSUMA">WARAS LATIF KUSUMA</option>
+                                <option value="WARAS LATIF k">WARAS LATIF KUSUMA</option>
                                 <option value="YAHYA">YAHYA</option>
                             </select>
                         </div>

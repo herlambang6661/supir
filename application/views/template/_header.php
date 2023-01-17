@@ -35,6 +35,10 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page"
+                    href="<?= base_url(); ?>index.php/Home/printView">Print Kartu Pengecekan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page"
                     href="<?= base_url(); ?>index.php/Home/laporan">Laporan</a>
             </li>
             <li class="nav-item">

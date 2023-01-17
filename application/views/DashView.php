@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="col">
-            <a class="nav-link" href="<?= base_url(); ?>index.php/Home/laporan">
+            <a class="nav-link" href="<?= base_url(); ?>index.php/Home/printView">
                 <div class="card text-white bg-dark">
                     <div class="card-body">
                         <div class="container">
@@ -40,8 +40,8 @@
                 </div>
             </a>
         </div>
-        <!-- <div class="col">
-            <a class="nav-link" href="#">
+        <div class="col">
+            <a class="nav-link" href="<?= base_url(); ?>index.php/Home/laporan">
                 <div class="card text-white bg-success">
                     <div class="card-body">
                         <div class="container">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </a>
-        </div> -->
+        </div>
         <!-- <div class="col">
             <a class="nav-link" href="#">
                 <div class="card text-white bg-info">

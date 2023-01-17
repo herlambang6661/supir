@@ -13,6 +13,7 @@ class Home extends CI_Controller
         
         $models = array(
             'HomeModel' => 'home',
+            'ReportModel' => 'report'
         );
         // Load Multiple Models
         foreach ($models as $file => $object_name) {
@@ -36,10 +37,10 @@ class Home extends CI_Controller
         $this->load->view('/template/_header.php', $data);
         $this->load->view('HomeView');
     }
-    public function laporan()
+    public function printView()
     {
         $this->load->view('/template/_header.php');
-        $this->load->view('LaporanView');
+        $this->load->view('PrintView');
     }
 
     public function input()
@@ -50,6 +51,8 @@ class Home extends CI_Controller
         $diinput = $_POST['user'];
         $tanggal = $_POST['tanggal'];
         $nopol = $_POST['nopol'];
+        $security = $_POST['security'];
+        $checker = $_POST['checker'];
         $driver1 = $_POST['driver1'];
         $driver2 = $_POST['driver2'];
         $forklift1 = $_POST['forklift1'];
@@ -65,6 +68,8 @@ class Home extends CI_Controller
             'idmuat' => $idform,
             'tanggal' => $tanggal,
             'nopol' => $nopol,
+            'security' => $security,
+            'checker' => $checker,
             'driver1' => $driver1,
             'driver2' => $driver2,
             'forklift1' => $forklift1,
@@ -143,5 +148,65 @@ class Home extends CI_Controller
         $data['pengecekan'] = $this->home->printPengecekan('sp_kartupengecekan', 'idmuat', $id)->result();
         $data['pengecekanitm'] = $this->home->printPengecekan('sp_kartupengecekanitm', 'idmuat', $id)->result();
         $this->load->view('template/_print', $data);
+    }
+
+    public function laporan()
+    {
+        $list = $this->report->getRekap();
+        foreach ($list as $x) {
+            $r[] = $x->idmuat;
+            $r[] = $x->jammuat;
+            $r[] = $x->jamselesai;
+
+            $awal  = strtotime($x->jammuat);
+            $akhir = strtotime($x->jamselesai);
+            $diff  = $akhir - $awal;
+            $jam   = floor($diff / (60 * 60));
+            $menit = $diff - ( $jam * (60 * 60) );
+
+            $r[] = $jam + (floor( $menit / 60 ) / 60);
+            
+            $person1 = ($x->security == "") ? 0 : 1;
+            $person2 = ($x->checker == "") ? 0 : 1;
+            $person3 = ($x->forklift1 == "") ? 0 : 1;
+            $person4 = ($x->forklift2 == "") ? 0 : 1;
+            $person5 = ($x->personel1 == "") ? 0 : 1;
+            $person6 = ($x->personel2 == "") ? 0 : 1;
+            $person7 = ($x->personel3 == "") ? 0 : 1;
+            $person8 = ($x->personel4 == "") ? 0 : 1;
+            $r[] = $person1 + $person2 + $person3 + $person4 + $person5 + $person6 + $person7 + $person8;
+        }
+        $data[] = $r;
+        echo json_encode($data);
+        die();
+
+        $this->load->view('/template/_header.php');
+        $this->load->view('LaporanView');
+    }
+
+    public function laporanDatatable()
+    {
+        // error_reporting(0);
+        $list = $this->report->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $itmdata) {
+            $no++;
+            $row = array();
+            $row[] = $itmdata->idmuat;
+            $row[] = date("d M Y", strtotime($itmdata->tanggal));
+            $row[] = $itmdata->nopol;
+            $row[] = $itmdata->driver1."".$itmdata->driver2=""?"":", ".$itmdata->driver2;
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->report->count_all(),
+            "recordsFiltered" => $this->report->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
     }
 }

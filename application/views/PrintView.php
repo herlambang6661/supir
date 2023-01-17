@@ -6,7 +6,7 @@
         aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url(); ?>index.php/Home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Laporan</li>
+            <li class="breadcrumb-item active" aria-current="page">Print</li>
         </ol>
     </nav>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -27,19 +27,12 @@
     <form action="<?= base_url() ?>index.php/Home/input" method="post">
         <div class="card border-success bg-light mb-3">
             <div class="card-header">
-                <h5 class="text-center">LIST LAPORAN PENGECEKAN</h5>
+                <h5 class="text-center">LIST PRINT PENGECEKAN</h5>
             </div>
             <div class="card-body">
-                <div class="col-lg-4">
-                    <div class="input-group mb-3">
-                        <label class="input-group-text">Tanggal : </label>
-                        <input type="date" class="form-control form-control-sm">
-                        <label class="input-group-text">-</label>
-                        <input type="date" class="form-control form-control-sm">
-                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </div>
-                <!-- <table style="text-decoration-color: black; text-transform:uppercase;font-size: 13px;width:100%" id="tablesss" class="table table-bordered table-striped">
+
+                <table style="text-decoration-color: black; text-transform:uppercase;font-size: 13px;width:100%"
+                    id="tablesss" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -51,19 +44,17 @@
                     </thead>
                     <tbody>
                     </tbody>
-                </table> -->
-                <table class="table table-bordered table-striped" style="text-decoration-color: black; text-transform:uppercase;font-size: 12px;width:100%">
-                    <thead>
+                    <tfoot>
                         <tr>
-                            <th scope="col">Item</th>
-                            <th scope="col">Durasi</th>
-                            <th scope="col">Man Hour</th>
-                            <th scope="col">MH</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Tgl</th>
+                            <th scope="col">Nopol</th>
+                            <th scope="col">Driver</th>
+                            <th scope="col">Opsi</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
+                    </tfoot>
                 </table>
+
             </div>
         </div>
     </form>
@@ -95,7 +86,7 @@ table2 = $('#tablesss').DataTable({
     "order": [], //Initial no order.
     // Load data for the table's content from an Ajax source
     "ajax": {
-        "url": "<?php echo base_url(); ?>index.php/Home/laporanDatatable",
+        "url": "<?php echo base_url(); ?>index.php/Home/list_item",
         "type": "POST",
         "data": function(data) {
             // data.start = $('#startDate').val();
@@ -107,7 +98,7 @@ table2 = $('#tablesss').DataTable({
         [5, 10, 25, 50, -1],
         ['5', '10', '25', '50', 'Show all']
     ],
-    "dom": 't',
+    "dom": 'fBrtlip',
     "buttons": [{
         "extend": 'excel',
         "className": 'btn btn-success',

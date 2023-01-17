@@ -33,26 +33,29 @@ foreach ($pengecekan as $u) { ?>
                 </table>
             </div>
             <div class="col">
+                <h6>SECURITY :</h6>
+                <ol>
+                    <li><?= $u->security ?></li>
+                </ol>
                 <h6>PERSONEL :</h6>
                 <ol>
                     <li><?= $u->personel1 ?></li>
-                    <?= $u->personel2=""?"":"<li>".$u->personel2."</li>" ?>
-                    <?= $u->personel3=""?"":"<li>".$u->personel3."</li>" ?>
-                    <?= $u->personel4=""?"":"<li>".$u->personel4."</li>" ?>
+                    <?= $u->personel2=" "?"":"<li>".$u->personel2."</li>" ?>
+                    <?= $u->personel3=" "?"":"<li>".$u->personel3."</li>" ?>
+                    <?= $u->personel4=" "?"":"<li>".$u->personel4."</li>" ?>
                 </ol>
-
             </div>
             <div class="col">
                 <h6>FORKLIFT :</h6>
                 <ol>
                     <li><?= $u->forklift1 ?></li>
-                    <?= $u->forklift2=""?"":"<li>".$u->forklift2."</li>" ?>
+                    <?= $u->forklift2=" "?"":"<li>".$u->forklift2."</li>" ?>
                 </ol>
 
                 <h6>DRIVER :</h6>
                 <ol>
                     <li><?= $u->driver1 ?></li>
-                    <?= $u->driver2=""?"":"<li>".$u->driver2."</li>" ?>
+                    <?= $u->driver2=" "?"":"<li>".$u->driver2."</li>" ?>
                 </ol>
 
             </div>
@@ -96,7 +99,7 @@ foreach ($pengecekan as $u) { ?>
         </table>
         <div class="row text-center">
             <div class="col h6">
-                GUDANG,
+                CHECKER GUDANG,
             </div>
             <div class="col h6">
                 SUPIR,
@@ -105,27 +108,16 @@ foreach ($pengecekan as $u) { ?>
                 SECURITY,
             </div>
         </div>
-        <br><br><br><br><br>
+        <br><br><br><br>
         <div class="row text-center">
             <div class="col h6">
-                ( ......................... )
+                ( <?= $u->checker ?> )
             </div>
             <div class="col h6">
-                ( ......................... )
+                ( <?= $u->driver1 ?> )
             </div>
             <div class="col h6">
-                ( ......................... )
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col h6">
-                TTD & Nama Jelas
-            </div>
-            <div class="col h6">
-                TTD & Nama Jelas
-            </div>
-            <div class="col h6">
-                TTD & Nama Jelas
+                ( <?= $u->security ?> )
             </div>
         </div>
     </div>
