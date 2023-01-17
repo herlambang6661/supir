@@ -49,7 +49,7 @@ foreach ($pengecekan as $u) { ?>
                 <h6>FORKLIFT :</h6>
                 <ol>
                     <li><?= $u->forklift1 ?></li>
-                    <?= $u->forklift2==" "?"":"<li>".$u->forklift2."</li>" ?>
+                    <?= $u->forklift2==""?"":"<li>".$u->forklift2."</li>" ?>
                 </ol>
 
                 <h6>DRIVER :</h6>

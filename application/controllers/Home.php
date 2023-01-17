@@ -163,12 +163,15 @@ class Home extends CI_Controller
     }
     public function jsonLaporan()
     {
+        error_reporting(0);
         $list = $this->report->getRekap();
         $data = array();
-        // $no = $_POST['start'];
+        $no = $_POST['start'];
         foreach ($list as $x) {
-            // $no++;
+            $no++;
+            $r = array();
             $r[] = $x->idmuat;
+            $r[] = date("d M Y", strtotime($x->tanggal));
             $r[] = $x->jammuat;
             $r[] = $x->jamselesai;
 
@@ -199,9 +202,9 @@ class Home extends CI_Controller
         // $data['hasil'] = $r;
         
         $output = array(
-            // "draw" => $_POST['draw'],
-            // "recordsTotal" => $this->report->count_all(),
-            // "recordsFiltered" => $this->report->count_filtered(),
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->report->count_all(),
+            "recordsFiltered" => $this->report->count_filtered(),
             "data" => $data,
         );
         echo json_encode($output);

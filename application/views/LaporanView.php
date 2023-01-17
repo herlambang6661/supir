@@ -31,18 +31,22 @@
             </div>
             <div class="card-body">
                 <div class="col-lg-4">
-                    <div class="input-group mb-3">
-                        <label class="input-group-text">Tanggal : </label>
-                        <input type="date" class="form-control form-control-sm">
-                        <label class="input-group-text">-</label>
-                        <input type="date" class="form-control form-control-sm">
-                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+                    <form id="form-filter" class="form-horizontal" style="visibility: hidden;">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text">Tanggal : </label>
+                            <input type="date" class="form-control form-control-sm" name="dateStart" id="dateStart">
+                            <label class="input-group-text">-</label>
+                            <input type="date" class="form-control form-control-sm" name="dateEnd" id="dateEnd">
+                            <a href="javascript:void(0);" id="btn-filter" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></a>
+                            <button type="button" id="btn-reset-kabag" class="btn btn-primary">Reset</button>
+                        </div>
+                    </form>
                 </div>
                 <table style="text-decoration-color: black; text-transform:uppercase;font-size: 13px;width:100%" id="tablesss" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">TANGGAL</th>
                             <th scope="col">JAM MULAI</th>
                             <th scope="col">JAM SELESAI</th>
                             <th scope="col">JUMLAH PERSONEL</th>
@@ -88,8 +92,8 @@ table2 = $('#tablesss').DataTable({
         "url": "<?php echo base_url(); ?>index.php/Home/jsonLaporan",
         "type": "POST",
         "data": function(data) {
-            // data.start = $('#startDate').val();
-            // data.end = $('#endDate').val();
+            data.start = $('#dateStart').val();
+            data.end = $('#dateEnd').val();
         }
     },
 
@@ -109,6 +113,7 @@ table2 = $('#tablesss').DataTable({
 
     //Set column definition initialisation properties.
     "columns": [
+        null,
         null,
         null,
         null,
@@ -140,11 +145,11 @@ $('#tablesss').on('click', '.print', function() {
     document.getElementById("letsPrint").value = varId;
 });
 
-$('#btn-filter-items').click(function() { //button filter event click
+$('#btn-filter').click(function() { //button filter event click
     table2.ajax.reload(); //just reload table
 });
-$('#btn-reset-items').click(function() { //button reset event click
-    $('#form-filter-items')[0].reset();
+$('#btn-reset').click(function() { //button reset event click
+    $('#form-filter')[0].reset();
     table2.ajax.reload(); //just reload table
 });
 
