@@ -40,22 +40,22 @@ foreach ($pengecekan as $u) { ?>
                 <h6>PERSONEL :</h6>
                 <ol>
                     <li><?= $u->personel1 ?></li>
-                    <?= $u->personel2=" "?"":"<li>".$u->personel2."</li>" ?>
-                    <?= $u->personel3=" "?"":"<li>".$u->personel3."</li>" ?>
-                    <?= $u->personel4=" "?"":"<li>".$u->personel4."</li>" ?>
+                    <?= $u->personel2==""?"":"<li>".$u->personel2."</li>" ?>
+                    <?= $u->personel3==""?"":"<li>".$u->personel3."</li>" ?>
+                    <?= $u->personel4==""?"":"<li>".$u->personel4."</li>" ?>
                 </ol>
             </div>
             <div class="col">
                 <h6>FORKLIFT :</h6>
                 <ol>
                     <li><?= $u->forklift1 ?></li>
-                    <?= $u->forklift2=" "?"":"<li>".$u->forklift2."</li>" ?>
+                    <?= $u->forklift2==" "?"":"<li>".$u->forklift2."</li>" ?>
                 </ol>
 
                 <h6>DRIVER :</h6>
                 <ol>
                     <li><?= $u->driver1 ?></li>
-                    <?= $u->driver2=" "?"":"<li>".$u->driver2."</li>" ?>
+                    <?= $u->driver2==""?"":"<li>".$u->driver2."</li>" ?>
                 </ol>
 
             </div>

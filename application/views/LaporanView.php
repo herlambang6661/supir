@@ -39,26 +39,16 @@
                         <button type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
-                <!-- <table style="text-decoration-color: black; text-transform:uppercase;font-size: 13px;width:100%" id="tablesss" class="table table-bordered table-striped">
+                <table style="text-decoration-color: black; text-transform:uppercase;font-size: 13px;width:100%" id="tablesss" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tgl</th>
-                            <th scope="col">Nopol</th>
-                            <th scope="col">Driver</th>
-                            <th scope="col">Opsi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table> -->
-                <table class="table table-bordered table-striped" style="text-decoration-color: black; text-transform:uppercase;font-size: 12px;width:100%">
-                    <thead>
-                        <tr>
-                            <th scope="col">Item</th>
-                            <th scope="col">Durasi</th>
-                            <th scope="col">Man Hour</th>
-                            <th scope="col">MH</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">JAM MULAI</th>
+                            <th scope="col">JAM SELESAI</th>
+                            <th scope="col">JUMLAH PERSONEL</th>
+                            <th scope="col">DURASI (JAM)</th>
+                            <th scope="col">MAN HOUR</th>
+                            <th scope="col">MH / BALE</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,7 +85,7 @@ table2 = $('#tablesss').DataTable({
     "order": [], //Initial no order.
     // Load data for the table's content from an Ajax source
     "ajax": {
-        "url": "<?php echo base_url(); ?>index.php/Home/laporanDatatable",
+        "url": "<?php echo base_url(); ?>index.php/Home/jsonLaporan",
         "type": "POST",
         "data": function(data) {
             // data.start = $('#startDate').val();
@@ -107,7 +97,8 @@ table2 = $('#tablesss').DataTable({
         [5, 10, 25, 50, -1],
         ['5', '10', '25', '50', 'Show all']
     ],
-    "dom": 't',
+    // "dom": 'fBrtlip',
+    "dom": 'Bt',
     "buttons": [{
         "extend": 'excel',
         "className": 'btn btn-success',
@@ -117,24 +108,24 @@ table2 = $('#tablesss').DataTable({
     }],
 
     //Set column definition initialisation properties.
-    "columns": [{
-            // target: 2,
-            visible: false,
-            // searchable: false,
-        },
+    "columns": [
         null,
         null,
         null,
-        {
-            mRender: function(data, type, row) {
-                var bindHtml = '';
-                bindHtml +=
-                    '<a class="btn btn-outline-dark btn-sm" href="<?= base_url() ?>index.php/Home/print/' +
-                    row[0] + '" target="_blank" data-id="' + row[0] +
-                    '"><i class="fas fa-print fa-fw"></i></a> ';
-                return bindHtml;
-            }
-        },
+        null,
+        null,
+        null,
+        null
+        // {
+        //     mRender: function(data, type, row) {
+        //         var bindHtml = '';
+        //         bindHtml +=
+        //             '<a class="btn btn-outline-dark btn-sm" href="<?= base_url() ?>index.php/Home/print/' +
+        //             row[0] + '" target="_blank" data-id="' + row[0] +
+        //             '"><i class="fas fa-print fa-fw"></i></a> ';
+        //         return bindHtml;
+        //     }
+        // },
 
     ],
 

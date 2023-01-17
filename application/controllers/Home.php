@@ -64,6 +64,36 @@ class Home extends CI_Controller
         $personel3 = $_POST['personel3'];
         $personel4 = $_POST['personel4'];
 
+        $tujuan = $_POST['tujuan'];
+        $nama = $_POST['nama'];
+        $lot = $_POST['lot'];
+        $jenis = $_POST['jenis'];
+        $val = $_POST['val'];
+        $bale = $_POST['bale'];
+        
+        $jml_mbl = count($tujuan);
+
+        $jml = $jml_mbl - 1;
+        for ($i = 0; $i < $jml; $i++) {
+            $tot[] = $bale[$i];
+            // $totbale[] = array_sum($tot);
+            $data = array(
+                'idmuat' => $idform,
+                'tujuan' => $tujuan[$i],
+                'nama' => $nama[$i],
+                'lot' => $lot[$i],
+                'jenis' => $jenis[$i],
+                'val_jenis' => $val[$i],
+                'bale' => $bale[$i],
+                'diinput' => $diinput
+            );
+            
+            $this->home->saveitm('sp_kartupengecekanitm', $data);
+        }
+
+        $totbale = array_sum($tot);
+        // die();
+        
         $dataMuat = array(
             'idmuat' => $idform,
             'tanggal' => $tanggal,
@@ -80,35 +110,10 @@ class Home extends CI_Controller
             'personel2' => $personel2,
             'personel3' => $personel3,
             'personel4' => $personel4,
+            'totbale' => $totbale,
             'diinput' => $diinput
         );
-
-        $tujuan = $_POST['tujuan'];
-        $nama = $_POST['nama'];
-        $lot = $_POST['lot'];
-        $jenis = $_POST['jenis'];
-        $val = $_POST['val'];
-        $bale = $_POST['bale'];
-        
-        $jml_mbl = count($tujuan);
-
-        $jml = $jml_mbl - 1;
-        // print_r($jenis);
-        // die();
         $result = $this->home->saveitm('sp_kartupengecekan', $dataMuat);
-        for ($i = 0; $i < $jml; $i++) {
-            $data = array(
-                'idmuat' => $idform,
-                'tujuan' => $tujuan[$i],
-                'nama' => $nama[$i],
-                'lot' => $lot[$i],
-                'jenis' => $jenis[$i],
-                'val_jenis' => $val[$i],
-                'bale' => $bale[$i],
-                'diinput' => $diinput
-            );
-            $this->home->saveitm('sp_kartupengecekanitm', $data);
-        }
 
         if ($result == 1) {
             $status = 'sukses';
@@ -152,8 +157,17 @@ class Home extends CI_Controller
 
     public function laporan()
     {
+
+        $this->load->view('/template/_header.php');
+        $this->load->view('LaporanView');
+    }
+    public function jsonLaporan()
+    {
         $list = $this->report->getRekap();
+        $data = array();
+        // $no = $_POST['start'];
         foreach ($list as $x) {
+            // $no++;
             $r[] = $x->idmuat;
             $r[] = $x->jammuat;
             $r[] = $x->jamselesai;
@@ -163,8 +177,8 @@ class Home extends CI_Controller
             $diff  = $akhir - $awal;
             $jam   = floor($diff / (60 * 60));
             $menit = $diff - ( $jam * (60 * 60) );
+            $hours = $jam + (floor( $menit / 60 ) / 60);
 
-            $r[] = $jam + (floor( $menit / 60 ) / 60);
             
             $person1 = ($x->security == "") ? 0 : 1;
             $person2 = ($x->checker == "") ? 0 : 1;
@@ -174,14 +188,24 @@ class Home extends CI_Controller
             $person6 = ($x->personel2 == "") ? 0 : 1;
             $person7 = ($x->personel3 == "") ? 0 : 1;
             $person8 = ($x->personel4 == "") ? 0 : 1;
-            $r[] = $person1 + $person2 + $person3 + $person4 + $person5 + $person6 + $person7 + $person8;
+            $personall = $person1 + $person2 + $person3 + $person4 + $person5 + $person6 + $person7 + $person8;
+            $mh = $personall * $hours;
+            $r[] = $personall;
+            $r[] = $hours;
+            $r[] = $mh;
+            $r[] = $mh / $x->totbale;
+            $data[] = $r;
         }
-        $data[] = $r;
-        echo json_encode($data);
-        die();
-
-        $this->load->view('/template/_header.php');
-        $this->load->view('LaporanView');
+        // $data['hasil'] = $r;
+        
+        $output = array(
+            // "draw" => $_POST['draw'],
+            // "recordsTotal" => $this->report->count_all(),
+            // "recordsFiltered" => $this->report->count_filtered(),
+            "data" => $data,
+        );
+        echo json_encode($output);
+        // die();
     }
 
     public function laporanDatatable()

@@ -13,12 +13,17 @@ class ReportModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    public function personel($id)
+    
+    public function count_filtered()
     {
-        $this->db->select('tujuan');
-        $this->db->from('sp_kartupengecekanitm');
-        $this->db->where('idmuat', $id);
+        $this->getRekap();
         $query = $this->db->get();
-        return $query->result();
+        return $query->num_rows();
+    }
+
+    public function count_all()
+    {
+        $this->getRekap();
+        return $this->db->count_all_results();
     }
 }
