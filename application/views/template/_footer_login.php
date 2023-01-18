@@ -9,7 +9,7 @@
 <script src="<?= base_url(); ?>assets/sbadmin2/js/sb-admin-2.min.js"></script>
 
 <!-- Sweetalert 2 -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="<?= base_url(); ?>assets/bootstrap/sweetalert2@11"></script>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <script type="text/javascript">
     $('form #btn-ok').click(function(e) {
