@@ -224,7 +224,7 @@
                                 <option value="AKMAD AFANDI">AKMAD AFANDI</option>
                                 <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
                                 <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
-                                <option value="DADANG KOMAR">DADANG KOMAR</option>
+                                <option value="DASMAD">DASMAD</option>
                                 <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
                                 <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
                                 <option value="EKO JOKO">EKO JOKO</option>
@@ -236,6 +236,7 @@
                                 <option value="IIP RAMDHANI">IIP RAMDHANI</option>
                                 <option value="JOHANI">JOHANI</option>
                                 <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
+                                <option value="RASTUN">RASTUN</option>
                                 <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
                                 <option value="SUBARI">SUBARI</option>
                                 <option value="SUDARNO">SUDARNO</option>
