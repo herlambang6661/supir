@@ -32,7 +32,7 @@ class ReportModel extends CI_Model
 
     private function _get_datatables_kupon_server()
     {
-        $today = date('Y-m-d');
+        $today = date('2023-01-18');
         //add custom filter here
         if ($this->input->post('dateStart') == NULL) {
             $this->db->where('tanggal', $today);

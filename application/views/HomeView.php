@@ -51,7 +51,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label fw-bolder">ID</label>
-                        <input type="text" class="form-control" name="idform" value="<?php echo $kode ?>" readonly>
+                        <input type="text" class="form-control" name="idform" id="idform" value="<?php echo $kode ?>" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label fw-bolder">Tanggal</label>
@@ -347,15 +347,23 @@ $(document).ready(function() {
 
     $("#btn-simpan").click(function() {
         
-        var tanggal = $("#tanggal").val();
+        // var tanggal = $("#tanggal").val();
+        // var idform = $("#idform").val();
+        // var security = $("#security").val();
+        // var checker = $("#checker").val();
+        // var nopol = $("#nopol").val();
 
-        if (tanggal.length == "") {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Oops...',
-                text: 'Kolom Username Wajib Diisi !'
-            });
-        } else {
+        // <?php //for ($i=1; $i < 3; $i++) { ?>
+        //     var driver<?= $i ?> = $("#driver<?= $i ?>").val();
+        // <?php // } ?>
+
+        // if (tanggal.length == "") {
+        //     Swal.fire({
+        //         icon: 'warning',
+        //         title: 'Oops...',
+        //         text: 'Kolom Username Wajib Diisi !'
+        //     });
+        // } else {
             let timerInterval
             Swal.fire({
                 title: 'Mohon Menunggu',
@@ -378,7 +386,65 @@ $(document).ready(function() {
                     console.log('I was closed by the timer')
                 }
             })
-        }
+        // } else {
+        //     $.ajax({
+        //         url: "<?= base_url() ?>index.php/Home/input",
+        //         type: "POST",
+        //         beforeSend: function() {
+        //             let timerInterval
+        //             Swal.fire({
+        //                 title: 'Mohon Menunggu...',
+        //                 html: 'Sedang Koneksi dengan Basis Data',
+        //                 showConfirmButton: false,
+        //                 timerProgressBar: true,
+        //                 didOpen: () => {
+        //                     Swal.showLoading()
+        //                     const b = Swal.getHtmlContainer().querySelector('b')
+        //                     timerInterval = setInterval(() => {
+        //                         b.textContent = Swal.getTimerLeft()
+        //                     }, 100)
+        //                 },
+        //                 willClose: () => {
+        //                     clearInterval(timerInterval)
+        //                 }
+        //             });
+        //         },
+        //         data: {
+        //             "selUser": selUser,
+        //             "pass": pass
+        //         },
+        //         success: function(response) {
+        //             if (response == "success") {
+        //                 Swal.fire({
+        //                         type: 'success',
+        //                         title: 'Username & Password Cocok',
+        //                         text: 'Anda akan di arahkan ke Halaman Dashboard',
+        //                         timer: 1000,
+        //                         showCancelButton: false,
+        //                         showConfirmButton: false
+        //                     })
+        //                     .then(function() {
+        //                         window.location.href = "<?php //echo base_url() ?>index.php/EK/Dashboard";
+        //                     });
+        //             } else {
+        //                 Swal.fire({
+        //                     type: 'error',
+        //                     title: 'Gagal Masuk',
+        //                     text: 'Username & Password tidak cocok'
+        //                 });
+        //             }
+        //             console.log(response);
+        //         },
+        //         error: function(response) {
+        //             Swal.fire({
+        //                 type: 'error',
+        //                 title: 'Opps!',
+        //                 text: 'server error!'
+        //             });
+        //             console.log(response);
+        //         }
+        //     });
+        // }
     });
 
     // var spOptions = {
