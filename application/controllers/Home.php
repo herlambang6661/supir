@@ -133,7 +133,8 @@ class Home extends CI_Controller
             $no++;
             $row = array();
             $row[] = $itmdata->idmuat;
-            $row[] = date("d M Y", strtotime($itmdata->tanggal));
+            $row[] = date("H:i, d-M-Y", strtotime($itmdata->datetime));
+            $row[] = $itmdata->security;
             $row[] = $itmdata->nopol;
             $row[] = $itmdata->driver1."".$itmdata->driver2=""?"":", ".$itmdata->driver2;
             $data[] = $row;

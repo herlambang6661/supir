@@ -55,9 +55,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label fw-bolder">Tanggal</label>
-                        <input type="date" class="form-control" value="<?php echo date(
-                        'd/m/Y'
-                    ); ?>" name="tanggal">
+                        <input type="date" class="form-control" value="<?php echo date('d-M-Y'); ?>" name="tanggal" id="tanggal">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label fw-bolder">Security</label>
@@ -96,8 +94,8 @@
                             <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
                             <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
                             <option value="EKO JOKO">EKO JOKO</option>
-                            <option value="FAHMI F">FAHMI FAHRURROZI</option>
-                            <option value="HADI I">HADI IRMAWAN</option>
+                            <option value="FAHMI">FAHMI FAHRURROZI</option>
+                            <option value="HADI">HADI IRMAWAN</option>
                             <option value="HERI MULYANA">HERI MULYANA</option>
                             <option value="HERMAN">HERMAN</option>
                             <option value="HERU ISWANTO">HERU ISWANTO</option>
@@ -107,8 +105,8 @@
                             <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
                             <option value="SUBARI">SUBARI</option>
                             <option value="SUDARNO">SUDARNO</option>
-                            <option value="SUPRIYANTO I">SUPRIYANTO I</option>
-                            <option value="WARAS LATIF k">WARAS LATIF KUSUMA</option>
+                            <option value="SUPRIYANTO">SUPRIYANTO I</option>
+                            <option value="WARAS LATIF">WARAS LATIF KUSUMA</option>
                             <option value="YAHYA">YAHYA</option>
                         </select>
                     </div>
@@ -133,8 +131,6 @@
                         <?php for ($i=1; $i < 3; $i++) { ?>
                         <div class="col-6">
                             <label for="formGroupExampleInput2" class="form-label fw-bolder">Driver <?= $i ?></label>
-                            <!-- <input type="text" class="form-control" id="formGroupExampleInput2"
-                        placeholder="Masukkan Nama Driver" name="driver"> -->
                             <select name="driver<?= $i ?>" id="driver<?= $i ?>" class="form-control">
                                 <option value="">-- Pilih Driver --</option>
                                 <option value="AGUS KARNADI">AGUS KARNADI</option>
@@ -190,7 +186,7 @@
                                 <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
                                 <option value="SUBARI">SUBARI</option>
                                 <option value="SUDARNO">SUDARNO</option>
-                                <option value="SUPRIYANTO I">SUPRIYANTO I</option>
+                                <option value="SUPRIYANTO">SUPRIYANTO</option>
                                 <option value="WARAS LATIF k">WARAS LATIF KUSUMA</option>
                                 <option value="YAHYA">YAHYA</option>
                             </select>
@@ -204,13 +200,13 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label fw-bolder">Jam Muat</label>
-                                <input type="time" class="form-control" name="jammuat">
+                                <input type="time" class="form-control" name="jammuat" id="jammuat">
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="formGroupExampleInput" class="form-label fw-bolder">Jam Selesai</label>
-                                <input type="time" class="form-control" name="jamselesai">
+                                <input type="time" class="form-control" name="jamselesai" id="jamselesai">
                             </div>
                         </div>
                     </div>
@@ -240,7 +236,7 @@
                                 <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
                                 <option value="SUBARI">SUBARI</option>
                                 <option value="SUDARNO">SUDARNO</option>
-                                <option value="SUPRIYANTO I">SUPRIYANTO I</option>
+                                <option value="SUPRIYANTO">SUPRIYANTO</option>
                                 <option value="WARAS LATIF k">WARAS LATIF KUSUMA</option>
                                 <option value="YAHYA">YAHYA</option>
                             </select>
@@ -349,30 +345,40 @@ $(document).ready(function() {
         $(this).parents(".control-group").remove();
     });
 
-
     $("#btn-simpan").click(function() {
-        let timerInterval
-        Swal.fire({
-            title: 'Mohon Menunggu',
-            html: 'Data Sedang Dikirim',
-            timer: 100000,
-            // timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading()
-                const b = Swal.getHtmlContainer().querySelector('b')
-                timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                }, 100)
-            },
-            willClose: () => {
-                clearInterval(timerInterval)
-            }
-        }).then((result) => {
-            /* Read more about handling dismissals below */
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
-            }
-        })
+        
+        var tanggal = $("#tanggal").val();
+
+        if (tanggal.length == "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Kolom Username Wajib Diisi !'
+            });
+        } else {
+            let timerInterval
+            Swal.fire({
+                title: 'Mohon Menunggu',
+                html: 'Data Sedang Dikirim',
+                timer: 100000,
+                // timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+        }
     });
 
     // var spOptions = {

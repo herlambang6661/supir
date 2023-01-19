@@ -31,7 +31,7 @@ class HomeModel extends CI_Model
     // ======== DATATABLES SERVERSIDE 2 ================================================================================================================================
     var $column_order2 = array('sp.tanggal', 'sp.nopol', 'sp.driver1'); //set column field database for datatable orderable
     var $column_search2 = array('sp.tanggal', 'sp.nopol', 'sp.driver1', 'sp.driver2'); //set column field database for datatable searchable
-    var $order2 = array('id' => 'desc'); // default order
+    var $order2 = array('sp.tanggal' => 'desc'); // default order
     private function _get_datatables_query()
     {
         $this->db->select('*');

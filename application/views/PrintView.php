@@ -36,7 +36,8 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Tgl</th>
+                            <th scope="col">Jam, Tgl</th>
+                            <th scope="col">Security</th>
                             <th scope="col">Nopol</th>
                             <th scope="col">Driver</th>
                             <th scope="col">Opsi</th>
@@ -44,15 +45,6 @@
                     </thead>
                     <tbody>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tgl</th>
-                            <th scope="col">Nopol</th>
-                            <th scope="col">Driver</th>
-                            <th scope="col">Opsi</th>
-                        </tr>
-                    </tfoot>
                 </table>
 
             </div>
@@ -103,13 +95,12 @@ table2 = $('#tablesss').DataTable({
         null,
         null,
         null,
+        null,
         {
             mRender: function(data, type, row) {
                 var bindHtml = '';
-                bindHtml +=
-                    '<a class="btn btn-outline-dark btn-sm" href="<?= base_url() ?>index.php/Home/print/' +
-                    row[0] + '" target="_blank" data-id="' + row[0] +
-                    '"><i class="fas fa-print fa-fw"></i></a> ';
+                bindHtml += '<a class="btn btn-outline-dark btn-sm" href="<?= base_url() ?>index.php/Home/print/' + row[0] + '" target="_blank" data-id="' + row[0] + '"><i class="fas fa-print fa-fw"></i></a> ';
+                // bindHtml += '<a class="btn btn-outline-danger btn-sm" href="<?= base_url() ?>index.php/Home/delete/' + row[0] + '" data-id="' + row[0] + '"><i class="fas fa-trash fa-fw"></i></a> ';
                 return bindHtml;
             }
         },
