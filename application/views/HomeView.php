@@ -55,11 +55,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label fw-bolder">Tanggal</label>
-                        <input type="date" class="form-control" value="<?php echo date('d-M-Y'); ?>" name="tanggal" id="tanggal">
+                        <input type="date" class="form-control" name="tanggal" id="tanggal" require>
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label fw-bolder">Security</label>
-                        <select name="security" id="security" class="form-control">
+                        <select name="security" id="security" class="form-control" require>
                             <option value="">-- Pilih Security --</option>
                             <option value="ABDUL NASORI">ABDUL NASORI</option>
                             <option value="ADE SUYONO">ADE SUYONO</option>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label fw-bolder">Checker Gudang</label>
-                        <select name="checker" id="checker" class="form-control">
+                        <select name="checker" id="checker" class="form-control" require>
                             <option value="">-- Pilih Checker --</option>
                             <option value="AKMAD AFANDI">AKMAD AFANDI</option>
                             <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
@@ -263,20 +263,17 @@
                                         <tr>
                                             <td>Tujuan</td>
                                             <td>:</td>
-                                            <td><input type="text" name="tujuan[]" id="tujuan[]"
-                                                    class="form-control form-control-sm"></td>
+                                            <td><input type="text" name="tujuan[]" id="tujuan[]" class="form-control form-control-sm"></td>
                                         </tr>
                                         <tr>
                                             <td>Nama Barang</td>
                                             <td>:</td>
-                                            <td><input type="text" name="nama[]" id="nama[]"
-                                                    class="form-control form-control-sm"></td>
+                                            <td><input type="text" name="nama[]" id="nama[]" class="form-control form-control-sm"></td>
                                         </tr>
                                         <tr>
                                             <td>Lot</td>
                                             <td>:</td>
-                                            <td><input type="text" name="lot[]" id="lot[]"
-                                                    class="form-control form-control-sm"></td>
+                                            <td><input type="text" name="lot[]" id="lot[]" class="form-control form-control-sm"></td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -290,23 +287,20 @@
                                                         id="inlineRadio2" value="Box">
                                                     <label class="form-check-label" for="inlineRadio2">Box</label>
                                                 </div> -->
-                                                <select name="jenis[]" id="jenis[]"
-                                                    class="form-control form-control-sm">
+                                                <select name="jenis[]" id="jenis[]" class="form-control form-control-sm">
                                                     <option value="">-- Pilih Jenis --</option>
                                                     <option value="Karung">Karung</option>
                                                     <option value="Box">Box</option>
                                                 </select>
                                             </td>
                                             <td>:</td>
-                                            <td><input type="number" name="val[]" id="val[]"
-                                                    class="form-control form-control-sm">
+                                            <td><input type="number" step="any" name="val[]" id="val[]" class="form-control form-control-sm">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Bale</td>
                                             <td>:</td>
-                                            <td><input type="number" name="bale[]" id="bale[]"
-                                                    class="form-control form-control-sm"></td>
+                                            <td><input type="number" step="any" name="bale[]" id="bale[]" class="form-control form-control-sm"></td>
                                         </tr>
                                     </table>
                                 </div>
