@@ -23,21 +23,6 @@
             </symbol>
         </svg>
 
-        <?php
-    $in = $this->uri->segment(3);
-    $value = !empty($in) ? $in : '';
-    if ($value) { ?>
-        <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-                <use xlink:href="#check-circle-fill" />
-            </svg>
-            <div>
-                Data Berhasil disimpan
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-        <?php } ?>
-
         <form action="<?= base_url() ?>index.php/Home/input" method="post">
             <div class="card border-success bg-light mb-3">
                 <div class="card-header">
@@ -112,7 +97,21 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label fw-bolder">No. Pol</label>
-                        <select name="nopol" id="nopol" class="form-control">
+                        <input list="nopolll" name="nopol" id="nopol" class="form-control">
+                            <datalist id="nopolll">
+                                <!-- <option value=""></option> -->
+                                <option value="E 8057 KV"> E 8057 KV</option>
+                                <option value="E 8058 KV"> E 8058 KV</option>
+                                <option value="E 8634 KW"> E 8634 KW</option>
+                                <option value="E 8807 KW"> E 8807 KW</option>
+                                <option value="B 9051 UEN">B 9051 UEN</option>
+                                <option value="B 9369 SW"> B 9369 SW</option>
+                                <option value="B 9369 UU"> B 9369 UU</option>
+                                <option value="B 9369 SB"> B 9369 SB</option>
+                                <option value="B 9369 SYM">B 9369 SYM</option>
+                                <option value="B 9675 UDF">B 9675 UDF</option>
+                            </datalist>
+                        <!-- <select name="nopol" id="nopol" class="form-control">
                             <option value="">-- Pilih Nopol --</option>
                             <option value="E 8057 KV"> E 8057 KV</option>
                             <option value="E 8058 KV"> E 8058 KV</option>
@@ -124,41 +123,66 @@
                             <option value="B 9369 SB"> B 9369 SB</option>
                             <option value="B 9369 SYM">B 9369 SYM</option>
                             <option value="B 9675 UDF">B 9675 UDF</option>
-                        </select>
-
+                        </select> -->
                     </div>
                     <div class="row">
                         <?php for ($i=1; $i < 3; $i++) { ?>
                         <div class="col-6">
                             <label for="formGroupExampleInput2" class="form-label fw-bolder">Driver <?= $i ?></label>
-                            <select name="driver<?= $i ?>" id="driver<?= $i ?>" class="form-control">
-                                <option value="">-- Pilih Driver --</option>
-                                <option value="AGUS KARNADI">AGUS KARNADI</option>
-                                <option value="ANDRI TRIA HERMAWAN">ANDRI TRIA HERMAWAN</option>
-                                <option value="ARI WIGUNA">ARI WIGUNA</option>
-                                <option value="CECEP RAHMAYADI">CECEP RAHMAYADI</option>
-                                <option value="DADAN">DADAN</option>
-                                <option value="DADANG PRIYATNA">DADANG PRIYATNA</option>
-                                <option value="DEDI SETIADI">DEDI SETIADI</option>
-                                <option value="DONI MARHADI">DONI MARHADI</option>
-                                <option value="HARI PRANATA">HARI PRANATA</option>
-                                <option value="HASAN APANDI">HASAN APANDI</option>
-                                <option value="KAMID">KAMID</option>
-                                <option value="MARAGANTI P MARPAUNG">MARAGANTI PARLAUNGAN MARPAUNG</option>
-                                <option value="MASKINA">MASKINA</option>
-                                <option value="MOHAMAD ALHAMIR">MOHAMAD ALHAMIR</option>
-                                <option value="NANA MULIANA">NANA MULIANA</option>
-                                <option value="RENOFIAN">RENOFIAN</option>
-                                <option value="SUBHAN FARID">SUBHAN FARID</option>
-                                <option value="SUDIRMAN 1">SUDIRMAN 1</option>
-                                <option value="SUJANA">SUJANA</option>
-                                <option value="SUNARTO">SUNARTO</option>
-                                <option value="ZIKY RAYENDRA">ZIKY RAYENDRA</option>
-                            </select>
+                            
+                            <input list="driverrr" name="driver<?= $i ?>" id="driver<?= $i ?>" class="form-control">                            
                             <!-- <div class="form-text"><small><em>Gunakan Koma (,) jika lebih Driver
                                 dari satu</em></small></div> -->
                         </div>
                         <?php } ?>
+                        
+                        <datalist id="driverrr">
+                            <option value="AGUS KARNADI">AGUS KARNADI</option>
+                            <option value="ANDRI TRIA HERMAWAN">ANDRI TRIA HERMAWAN</option>
+                            <option value="ARI WIGUNA">ARI WIGUNA</option>
+                            <option value="CECEP RAHMAYADI">CECEP RAHMAYADI</option>
+                            <option value="DADAN">DADAN</option>
+                            <option value="DADANG PRIYATNA">DADANG PRIYATNA</option>
+                            <option value="DEDI SETIADI">DEDI SETIADI</option>
+                            <option value="DONI MARHADI">DONI MARHADI</option>
+                            <option value="HARI PRANATA">HARI PRANATA</option>
+                            <option value="HASAN APANDI">HASAN APANDI</option>
+                            <option value="KAMID">KAMID</option>
+                            <option value="MARAGANTI P MARPAUNG">MARAGANTI PARLAUNGAN MARPAUNG</option>
+                            <option value="MASKINA">MASKINA</option>
+                            <option value="MOHAMAD ALHAMIR">MOHAMAD ALHAMIR</option>
+                            <option value="NANA MULIANA">NANA MULIANA</option>
+                            <option value="RENOFIAN">RENOFIAN</option>
+                            <option value="SUBHAN FARID">SUBHAN FARID</option>
+                            <option value="SUDIRMAN 1">SUDIRMAN 1</option>
+                            <option value="SUJANA">SUJANA</option>
+                            <option value="SUNARTO">SUNARTO</option>
+                            <option value="ZIKY RAYENDRA">ZIKY RAYENDRA</option>
+                        </datalist>
+                        <!-- <select name="driver<?php // echo $i ?>" id="driver<?php // echo $i ?>" class="form-control">
+                            <option value="">-- Pilih Driver --</option>
+                            <option value="AGUS KARNADI">AGUS KARNADI</option>
+                            <option value="ANDRI TRIA HERMAWAN">ANDRI TRIA HERMAWAN</option>
+                            <option value="ARI WIGUNA">ARI WIGUNA</option>
+                            <option value="CECEP RAHMAYADI">CECEP RAHMAYADI</option>
+                            <option value="DADAN">DADAN</option>
+                            <option value="DADANG PRIYATNA">DADANG PRIYATNA</option>
+                            <option value="DEDI SETIADI">DEDI SETIADI</option>
+                            <option value="DONI MARHADI">DONI MARHADI</option>
+                            <option value="HARI PRANATA">HARI PRANATA</option>
+                            <option value="HASAN APANDI">HASAN APANDI</option>
+                            <option value="KAMID">KAMID</option>
+                            <option value="MARAGANTI P MARPAUNG">MARAGANTI PARLAUNGAN MARPAUNG</option>
+                            <option value="MASKINA">MASKINA</option>
+                            <option value="MOHAMAD ALHAMIR">MOHAMAD ALHAMIR</option>
+                            <option value="NANA MULIANA">NANA MULIANA</option>
+                            <option value="RENOFIAN">RENOFIAN</option>
+                            <option value="SUBHAN FARID">SUBHAN FARID</option>
+                            <option value="SUDIRMAN 1">SUDIRMAN 1</option>
+                            <option value="SUJANA">SUJANA</option>
+                            <option value="SUNARTO">SUNARTO</option>
+                            <option value="ZIKY RAYENDRA">ZIKY RAYENDRA</option>
+                        </select> -->
                     </div>
                     <div class="row">
                         <?php for ($i=1; $i < 3; $i++) { ?>
@@ -315,8 +339,8 @@
                     <div class="float-end">
                         <button type="reset" class="btn btn-dark"><i class="fa fa-arrow-rotate-left"></i>
                             Reset</button>
-                        <button class="btn btn-outline-dark" type="button"><i class="fa fa-arrow-left"></i>
-                            Kembali</button>
+                        <a href="<?= base_url(); ?>index.php/Home" class="btn btn-outline-dark" type="button"><i class="fa fa-arrow-left"></i>
+                            Kembali</a>
                     </div>
 
                 </div>
@@ -326,6 +350,29 @@
 </body>
 
 <?php $this->load->view('template/_footer'); ?>
+
+        <?php
+    $in = $this->uri->segment(3);
+    $value = !empty($in) ? $in : '';
+    if ($value) { ?>
+    <!-- <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+            <use xlink:href="#check-circle-fill" />
+        </svg>
+        <div>
+            Data Berhasil disimpan
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div> -->
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Data Berhasil disimpan',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        </script>
+    <?php } ?>
 
 <script type="text/javascript">
 $(document).ready(function() {

@@ -36,7 +36,7 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Jam, Tgl</th>
+                            <th scope="col">Tgl Penginputan</th>
                             <th scope="col">Security</th>
                             <th scope="col">Nopol</th>
                             <th scope="col">Driver</th>
