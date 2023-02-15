@@ -48,9 +48,9 @@
                             <option value="">-- Pilih Security --</option>
                             <option value="ABDUL NASORI">ABDUL NASORI</option>
                             <option value="ADE SUYONO">ADE SUYONO</option>
+                            <option value="AKHMAD RHAMADHAN">AKHMAD RHAMADHAN</option>
                             <option value="AGUS SUTISNA">AGUS SUTISNA</option>
                             <option value="ARIEF MAHFUDIN">ARIEF MAHFUDIN</option>
-                            <option value="ARYUDI">ARYUDI</option>
                             <option value="HARDIMAN">HARDIMAN</option>
                             <option value="HARYADI">HARYADI</option>
                             <option value="KADI TRIHAYUDI">KADI TRIHAYUDI</option>
