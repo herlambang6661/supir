@@ -88,6 +88,7 @@
                             <option value="JOHANI">JOHANI</option>
                             <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
                             <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
+                            <option value="ROSA PRADEWI">ROSA PRADEWI</option>
                             <option value="SUBARI">SUBARI</option>
                             <option value="SUDARNO">SUDARNO</option>
                             <option value="SUPRIYANTO">SUPRIYANTO I</option>
@@ -205,6 +206,7 @@
                                 <option value="HERMAN">HERMAN</option>
                                 <option value="HERU ISWANTO">HERU ISWANTO</option>
                                 <option value="IIP RAMDHANI">IIP RAMDHANI</option>
+                                <option value="IVAN MUBAROK">IVAN MUBAROK</option>
                                 <option value="JOHANI">JOHANI</option>
                                 <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
                                 <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
