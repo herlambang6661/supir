@@ -23,8 +23,7 @@ class ReportModel extends CI_Model
     //     $query = $this->db->get();
     //     return $query->result();
     // }
-    
-    
+        
     // ======== DATATABLES KUPON ===========================================================================================================================
     var $column_order = array('tanggal'); //set column field database for datatable orderable
     var $column_search = array('tanggal'); //set column field database for datatable searchable 
@@ -32,21 +31,31 @@ class ReportModel extends CI_Model
 
     private function _get_datatables_kupon_server()
     {
-        $today = date('2023-01-18');
+        $today = date('2023-02-01');
+        $today2 = date('2023-03-31');
         //add custom filter here
-        if ($this->input->post('dateStart') == NULL) {
-            $this->db->where('tanggal', $today);
-        } elseif ($this->input->post('dateStart') && $this->input->post('dateEnd')) {
-            $t1 = $this->input->post('dateStart');
-            $t2 = $this->input->post('dateEnd');
-            $this->db->where("tanggal BETWEEN '$t1' AND '$t2'");
-        }
+        // if ($this->input->post('dateStart') == NULL) {
+        //     $this->db->where("tanggal BETWEEN '$today' AND '$today2'");
+        //     // $this->db->where('tanggal', $today);
+        // } elseif ($this->input->post('dateStart') && $this->input->post('dateEnd')) {
+        //     $t1 = $this->input->post('dateStart');
+        //     $t2 = $this->input->post('dateEnd');
+        //     $this->db->where("tanggal BETWEEN '$t1' AND '$t2'");
+        // }
         //add custom filter here
 
         $this->db->select('*');
-        $this->db->from('sp_kartupengecekan sp');
+        $this->db->from('sp_kartupengecekan');
         // $query = $this->db->get();
         // return $query->result();
+        $this->db->where("tanggal BETWEEN '$today' AND '$today2'");
+        $this->db->where("checker", 'AKMAD AFANDI');
+        // $this->db->or_where("forklift1 like '%AKMAD AFANDI%'");
+        // $this->db->or_where("forklift2 like '%AKMAD AFANDI%'");
+        // $this->db->or_where("personel1 like '%AKMAD AFANDI%'");
+        // $this->db->or_where("personel2 like '%AKMAD AFANDI%'");
+        // $this->db->or_where("personel3 like '%AKMAD AFANDI%'");
+        // $this->db->or_where("personel4 like '%AKMAD AFANDI%'");
 
         $i = 0;
 

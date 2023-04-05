@@ -52,6 +52,7 @@
                             <th scope="col">JUMLAH PERSONEL</th>
                             <th scope="col">DURASI (JAM)</th>
                             <th scope="col">MAN HOUR</th>
+                            <th scope="col">TOTAL BALE DAY</th>
                             <th scope="col">MH / BALE</th>
                         </tr>
                     </thead>
@@ -98,7 +99,7 @@ table2 = $('#tablesss').DataTable({
     },
 
     lengthMenu: [
-        [5, 10, 25, 50, -1],
+        [-1, 10, 25, 50, -1],
         ['5', '10', '25', '50', 'Show all']
     ],
     // "dom": 'fBrtlip',
@@ -113,6 +114,7 @@ table2 = $('#tablesss').DataTable({
 
     //Set column definition initialisation properties.
     "columns": [
+        null,
         null,
         null,
         null,

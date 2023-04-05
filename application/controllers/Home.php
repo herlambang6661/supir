@@ -70,6 +70,7 @@ class Home extends CI_Controller
         $jenis = $_POST['jenis'];
         $val = $_POST['val'];
         $bale = $_POST['bale'];
+        $cones = $_POST['cones'];
         
         $jml_mbl = count($tujuan);
 
@@ -85,6 +86,7 @@ class Home extends CI_Controller
                 'jenis' => $jenis[$i],
                 'val_jenis' => $val[$i],
                 'bale' => $bale[$i],
+                'cones' => $cones[$i],
                 'diinput' => $diinput
             );
             
@@ -164,7 +166,7 @@ class Home extends CI_Controller
     }
     public function jsonLaporan()
     {
-        error_reporting(0);
+        // error_reporting(0);
         $list = $this->report->getRekap();
         $data = array();
         $no = $_POST['start'];
@@ -172,7 +174,7 @@ class Home extends CI_Controller
             $no++;
             $r = array();
             $r[] = $x->idmuat;
-            $r[] = date("d M Y", strtotime($x->tanggal));
+            $r[] = date("d/m/Y", strtotime($x->tanggal));
             $r[] = $x->jammuat;
             $r[] = $x->jamselesai;
 
@@ -194,10 +196,16 @@ class Home extends CI_Controller
             $person8 = ($x->personel4 == "") ? 0 : 1;
             $personall = $person1 + $person2 + $person3 + $person4 + $person5 + $person6 + $person7 + $person8;
             $mh = $personall * $hours;
+
+            $tbale = ($x->totbale == "") ? 0 : (int)$x->totbale;
+            // settype($tbale, 'integer');
+            // $tbale =  float($x->totbale);
+            $mhpb = ($mh) / ($tbale);
             $r[] = $personall;
             $r[] = $hours;
             $r[] = $mh;
-            $r[] = $mh / $x->totbale;
+            $r[] = $tbale;
+            $r[] = $mhpb;
             $data[] = $r;
         }
         // $data['hasil'] = $r;

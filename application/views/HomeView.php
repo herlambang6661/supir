@@ -324,6 +324,11 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td>Cones</td>
+                                            <td>:</td>
+                                            <td><input type="number" step="any" name="cones[]" id="cones[]" class="form-control form-control-sm"></td>
+                                        </tr>
+                                        <tr>
                                             <td>Bale</td>
                                             <td>:</td>
                                             <td><input type="number" step="any" name="bale[]" id="bale[]" class="form-control form-control-sm"></td>
