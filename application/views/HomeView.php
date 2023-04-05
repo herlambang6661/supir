@@ -326,7 +326,7 @@
                                         <tr>
                                             <td>Cones</td>
                                             <td>:</td>
-                                            <td><input type="number" step="any" name="cones[]" id="cones[]" class="form-control form-control-sm"></td>
+                                            <td><input type="number" step="any" name="cones[]" id="cones[]" class="form-control form-control-sm" value='0'></td>
                                         </tr>
                                         <tr>
                                             <td>Bale</td>
