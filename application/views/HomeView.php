@@ -75,7 +75,6 @@
                             <option value="AKMAD AFANDI">AKMAD AFANDI</option>
                             <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
                             <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
-                            <option value="DADANG KOMAR">DADANG KOMAR</option>
                             <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
                             <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
                             <option value="EKO JOKO">EKO JOKO</option>
@@ -86,7 +85,6 @@
                             <option value="HERU ISWANTO">HERU ISWANTO</option>
                             <option value="IIP RAMDHANI">IIP RAMDHANI</option>
                             <option value="JOHANI">JOHANI</option>
-                            <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
                             <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
                             <option value="ROSA PRADEWI">ROSA PRADEWI</option>
                             <option value="SUBARI">SUBARI</option>
@@ -152,6 +150,7 @@
                             <option value="MARAGANTI P MARPAUNG">MARAGANTI PARLAUNGAN MARPAUNG</option>
                             <option value="MASKINA">MASKINA</option>
                             <option value="MOHAMAD ALHAMIR">MOHAMAD ALHAMIR</option>
+                            <option value="MOHAMAD GOBANG">MOHAMAD GOBANG</option>
                             <option value="NANA MULIANA">NANA MULIANA</option>
                             <option value="RENOFIAN">RENOFIAN</option>
                             <option value="SUBHAN FARID">SUBHAN FARID</option>
@@ -196,7 +195,6 @@
                                 <option value="AKMAD AFANDI">AKMAD AFANDI</option>
                                 <option value="ASEP BUDIMAN">ASEP BUDIMAN</option>
                                 <option value="BAYUDI RAYITNO">BAYUDI RAYITNO</option>
-                                <option value="DADANG KOMAR">DADANG KOMAR</option>
                                 <option value="DONI ADIFIYANTO">DONI ADIFIYANTO</option>
                                 <option value="EDWIN SAPUTRA">EDWIN SAPUTRA</option>
                                 <option value="EKO JOKO">EKO JOKO</option>
@@ -208,7 +206,6 @@
                                 <option value="IIP RAMDHANI">IIP RAMDHANI</option>
                                 <option value="IVAN MUBAROK">IVAN MUBAROK</option>
                                 <option value="JOHANI">JOHANI</option>
-                                <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
                                 <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
                                 <option value="SUBARI">SUBARI</option>
                                 <option value="SUDARNO">SUDARNO</option>
@@ -257,7 +254,6 @@
                                 <option value="HERU ISWANTO">HERU ISWANTO</option>
                                 <option value="IIP RAMDHANI">IIP RAMDHANI</option>
                                 <option value="JOHANI">JOHANI</option>
-                                <option value="MOHAMAD JAYUS">MOHAMAD JAYUS</option>
                                 <option value="RASTUN">RASTUN</option>
                                 <option value="ROCHMAD SIGIT DN">ROCHMAD SIGIT DN</option>
                                 <option value="SUBARI">SUBARI</option>

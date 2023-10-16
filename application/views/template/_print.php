@@ -70,6 +70,7 @@ foreach ($pengecekan as $u) { ?>
                 <th>KARUNG</th>
                 <th>BOX</th>
                 <th>BALE</th>
+                <th>CONES</th>
             </thead>
             <?php 
             $no1 = 1; 
@@ -94,6 +95,7 @@ foreach ($pengecekan as $u) { ?>
                     } ?>
                 </td>
                 <td><?php echo $w->bale ?></td>
+                <td><?php echo $w->cones ?></td>
             </tr>
             <?php } ?>
         </table>
