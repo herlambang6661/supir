@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container vh-100 d-flex">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
             <a class="nav-link" href="<?= base_url(); ?>index.php/Home/pengecekan">
@@ -8,7 +8,7 @@
                             <div class="row">
                                 <div class="col-4">
                                     <div class="float-start">
-                                        <h1 class="display-1"><i class="fa fa-folder-plus"></i></h1>
+                                        <h1 class="display-4"><i class="fa fa-folder-plus"></i></h1>
                                     </div>
                                 </div>
                                 <div class="col-8">
@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-4">
                                     <div class="float-start">
-                                        <h1 class="display-1"><i class="fa fa-print"></i></h1>
+                                        <h1 class="display-4"><i class="fa fa-print"></i></h1>
                                     </div>
                                 </div>
                                 <div class="col-8">
@@ -41,18 +41,18 @@
             </a>
         </div>
         <div class="col">
-            <a class="nav-link" href="<?= base_url(); ?>index.php/Home/laporan">
+            <a class="nav-link" href="<?= base_url(); ?>index.php/Kendaraan">
                 <div class="card text-white bg-success">
                     <div class="card-body">
                         <div class="container">
                             <div class="row">
                                 <div class="col-3">
                                     <div class="float-start">
-                                        <h1 class="display-1"><i class="fa fa-book"></i></h1>
+                                        <h1 class="display-4"><i class="fa fa-truck"></i></h1>
                                     </div>
                                 </div>
                                 <div class="col-9">
-                                    <h3>LAPORAN</h3>
+                                    <h4>KELUAR / MASUK KENDARAAN</h4>
                                 </div>
                             </div>
                         </div>

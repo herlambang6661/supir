@@ -1,4 +1,76 @@
-<body class="bg-primary">
+<body>
+    <style>
+    a {
+        text-decoration: none;
+    }
+
+    .login-page {
+        width: 100%;
+        height: 100vh;
+        display: inline-block;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-right i {
+        font-size: 100px;
+    }
+    </style>
+    <div class="login-page bg-purple">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <h3 class="mb-3"></h3>
+                    <div class="bg-white shadow rounded">
+                        <div class="row">
+                            <div class="col-md-7 pe-0">
+                                <div class="form-left h-100 py-5 px-5">
+                                    <form action="" class="row g-4">
+                                        <div class="col-12">
+                                            <label>Username</label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="fa fa-user"></i></div><br>
+                                                <input type="text" class="form-control" placeholder="Enter Username"
+                                                    id="username" name="username">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label>Password</label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="fa fa-key"></i></div>
+                                                <input type="password" class="form-control" placeholder="Enter Password"
+                                                    id="password" name="password">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button type="button"
+                                                class="btn btn-primary px-4 float-end mt-4 btn-sign">Login <i
+                                                    class="fa-solid fa-right-to-bracket"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-5 ps-0 d-none d-md-block">
+                                <div class="form-right h-100 bg-primary text-white text-center pt-5">
+                                    <i class="fa-solid fa-truck-field fa-bounce"></i>
+                                    <h2 class="fs-1">Selamat Datang</h2>
+                                    <h6 class="text-center">LOGIN UNTUK MENGGUNAKAN APLIKASI</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-end text-secondary mt-3">Aplikasi Bongkar & Muat Kendaraan PT PNTEX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+
+</body>
+<!-- <body class="bg-primary">
     <br>
     <br>
     <div class="container col-lg-4">
@@ -33,7 +105,7 @@
             </div>
         </div>
     </div>
-</body>
+</body> -->
 <?php $this->load->view('template/_footer'); ?>
 
 <script>
